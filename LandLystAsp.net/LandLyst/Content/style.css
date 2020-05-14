@@ -1,0 +1,15 @@
+﻿.radioButtonList input {
+    transform: scale(3);
+    margin: 15px 25% 0px;
+}
+
+.radioButtonList label {
+    /*margin-left: 25%;*/
+    margin-top: 15px;
+    /*margin-top:10px;*/
+}
+
+
+
+
+
