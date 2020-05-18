@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Book a room" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="LandLyst._Default" %>
+﻿<%@ Page Title="Book a room" Language="C#" MasterPageFile="Booking.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="LandLyst._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
