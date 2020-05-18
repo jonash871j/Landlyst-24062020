@@ -1,0 +1,106 @@
+﻿body {
+    position: absolute;
+    background-image: url("Image/Villa-20-bedroom-2.jpg");
+    background-repeat: no-repeat;
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.navBar {
+    position: fixed;
+    display: block;
+    top: -150px;
+    height: 0px;
+    width: 100%;
+    background-color: #000000a3;
+    z-index: 5;
+    opacity: 0;
+    transition: 1s;
+}
+
+    .navBar div {
+        margin-top: 50px;
+        padding: 0px 100px;
+    }
+
+    .navBar a {
+        color: white;
+        font-size: 20px;
+        text-decoration: none;
+        padding: 0px 20px 0px 0px;
+    }
+
+    .navBar i {
+        position: relative;
+        color: white;
+        font-size: 30px;
+        float: right;
+    }
+
+.menuClass {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}
+
+.menuButton {
+    position: relative;
+    border-radius: 0;
+    padding: 10px 40px;
+    font-size: 18px;
+}
+
+.bottomBar {
+    position: relative;
+    width: 100%;
+    box-shadow: 0px 0px 10px 0px black;
+    background-color: white;
+    top: 80%
+}
+
+    .bottomBar p {
+        margin: 0;
+    }
+
+.Middlebutton {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    top: -75px;
+    background-color: white;
+    width: 150px;
+    height: 150px;
+    border-radius: 100px;
+    box-shadow: 0px 0px 10px 0px black;
+}
+
+    .Middlebutton div {
+        width: 100%;
+        height: 100%;
+    }
+
+    .Middlebutton a {
+        color: #212529;
+        text-decoration: none;
+    }
+
+    .Middlebutton p {
+        font-size: 25px;
+        padding: 33px 0px;
+        font-weight: 400;
+        text-align: center;
+    }
+
+.Header1 {
+    position: relative;
+    background-color: #ffffff80;
+    top: 40%;
+    text-align: center;
+    border: 3px solid #212529;
+}
+
+.center {
+    margin: auto;
+    width: 30%;
+}
