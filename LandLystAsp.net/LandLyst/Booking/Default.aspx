@@ -1,11 +1,11 @@
-﻿<%@ Page Title="Book a room" Language="C#" MasterPageFile="Booking.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="LandLyst._Default" %>
+﻿<%@ Page Title="Home Page" Language="C#" AutoEventWireup="true" MasterPageFile="~/Booking/Booking.Master" CodeBehind="Default.aspx.cs" Inherits="LandLyst.Booking.Default" %>
+
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-5">
-
+                <%-- Calendar row --%>
                 <div class="row calendar">
                     <div class="col-sm-6">
 
@@ -35,10 +35,9 @@
                         </asp:Calendar>
                     </div>
                 </div>
-
+                <%-- Row with room addition checkboxes --%>
                 <div class="row" style="margin-top: 20px">
                     <div class="col-sm-12">
-
                         <asp:CheckBoxList runat="server" Class="checkButtonList" Style="margin: auto" RepeatDirection="Horizontal" Font-Size="15px">
                             <asp:ListItem>Køkken</asp:ListItem>
                             <asp:ListItem>Dobbeltseng</asp:ListItem>
@@ -49,13 +48,14 @@
                         </asp:CheckBoxList>
                     </div>
                 </div>
+
                 <div class="row informationBox">
                     <asp:TextBox runat="server" ReadOnly="true">Information om rum</asp:TextBox>
-                    
+
                 </div>
             </div>
             <div class="col-sm-7">
-                <p>Rum</p>
+
 
                 <%-- List with rooms --%>
                 <asp:ListView runat="server" ID="RoomListView">
@@ -65,15 +65,22 @@
                         </table>
                     </LayoutTemplate>
                     <ItemTemplate>
-                        <tr>
-                            <td><a href='<%#Eval("Path") %>'><%#Eval("Title") %></a></td>
-                            <td><a href='<%#Eval("Title") %>'><%#Eval("Path") %></a></td>
-                        </tr>
+                        <div class="roomCard">
+
+                            <img class="roomCardImage" src="../Content/Image/HotelRoom.png" />
+
+                            <div class="roomCardInformation">
+                                <%#Eval("Title") %>
+                            </div>
+                        </div>
+                        <%--<tr>--%>
+                        <%--                            <td><a href='<%#Eval("Path") %>'><%#Eval("Title") %></a></td>
+                            
+                        </tr>--%>
                     </ItemTemplate>
                 </asp:ListView>
 
             </div>
         </div>
     </div>
-
 </asp:Content>

@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LandLyst
+namespace LandLyst.Booking
 {
 
 
-    public partial class _Default
+    public partial class Default
     {
 
         /// <summary>

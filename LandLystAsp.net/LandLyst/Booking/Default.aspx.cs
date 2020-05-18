@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Web;
-using System.Web.ModelBinding;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -17,10 +15,14 @@ namespace LandLyst.Booking
             SearchResult sr = new SearchResult();
             sr.Title = "jens";
             sr.Path = "2r3wrwe";
+            SearchResult sr2 = new SearchResult();
+            sr.Title = "Kasper";
+            sr.Path = "jaaa";
             List<SearchResult> list = new List<SearchResult>();
             list.Add(sr);
-            //RoomListView.DataSource = list;
-            //RoomListView.DataBind();
+            list.Add(sr2);
+            RoomListView.DataSource = list;
+            RoomListView.DataBind();
         }
     }
 

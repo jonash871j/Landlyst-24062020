@@ -67,7 +67,6 @@ C:\Users\kaspe\Documents\Landlyst-24062020\LandLystAsp.net\LandLyst\bin\Newtonso
 C:\Users\kaspe\Documents\Landlyst-24062020\LandLystAsp.net\LandLyst\bin\Antlr3.Runtime.pdb
 C:\Users\kaspe\Documents\Landlyst-24062020\LandLystAsp.net\LandLyst\bin\Microsoft.AspNet.FriendlyUrls.xml
 C:\Users\kaspe\Documents\Landlyst-24062020\LandLystAsp.net\LandLyst\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\kaspe\Documents\Landlyst-24062020\LandLystAsp.net\LandLyst\obj\Debug\LandLyst.csprojAssemblyReference.cache
 C:\Users\kaspe\Documents\Landlyst-24062020\LandLystAsp.net\LandLyst\obj\Debug\LandLyst.csproj.CoreCompileInputs.cache
 C:\Users\kaspe\Documents\Landlyst-24062020\LandLystAsp.net\LandLyst\obj\Debug\LandLyst.csproj.CopyComplete
 C:\Users\kaspe\Documents\Landlyst-24062020\LandLystAsp.net\LandLyst\obj\Debug\LandLyst.dll
@@ -220,3 +219,4 @@ C:\Users\Zeb\Documents\GitHub\Landlyst-24062020\LandLystAsp.net\LandLyst\obj\Deb
 C:\Users\Zeb\Documents\GitHub\Landlyst-24062020\LandLystAsp.net\LandLyst\obj\Debug\LandLyst.csproj.CopyComplete
 C:\Users\Zeb\Documents\GitHub\Landlyst-24062020\LandLystAsp.net\LandLyst\obj\Debug\LandLyst.dll
 C:\Users\Zeb\Documents\GitHub\Landlyst-24062020\LandLystAsp.net\LandLyst\obj\Debug\LandLyst.pdb
+C:\Users\kaspe\Documents\Landlyst-24062020\LandLystAsp.net\LandLyst\obj\Debug\LandLyst.csprojAssemblyReference.cache

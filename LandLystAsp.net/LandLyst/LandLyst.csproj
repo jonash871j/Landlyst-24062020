@@ -116,6 +116,9 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\HeadsiteStyle.css" />
+    <Content Include="Content\Image\HotelRoom.png" />
+    <Content Include="Content\Image\Villa-20-bedroom-2.jpg" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
     <Content Include="Default.aspx" />
@@ -259,19 +262,19 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Booking\Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Booking\Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Booking\Booking.Master.cs">
       <DependentUpon>Booking.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Booking\Booking.Master.designer.cs">
       <DependentUpon>Booking.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Booking\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Booking\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
