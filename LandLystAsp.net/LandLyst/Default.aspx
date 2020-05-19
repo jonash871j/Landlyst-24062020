@@ -3,7 +3,8 @@
     <div id="NavMenu" class="navBar">
         <div>
             <a href="#">Forside</a>
-            <a href="#">Forside</a>
+            <a href="booking">Book</a>
+            <a href="test">Test</a>
             <i class="fa fa-times" onclick="NavBarFunc('0px', '0', '-150px')"></i>
         </div>
     </div>
@@ -18,9 +19,7 @@
     <div class="bottomBar">
         <div class="Middlebutton">
             <a href="Booking">
-                <div>
-                    <p>Book<br>Værelse</p>
-                </div>
+                <p>Book<br>Værelse</p>
             </a>
         </div>
         <p>sa</p>
