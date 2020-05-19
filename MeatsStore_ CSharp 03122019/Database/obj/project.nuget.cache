@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aHvA+t82/0cfunyJCzQsq63gdIzPzzVE8EBs3CU/HECvRlpFtbij1wReCFcgxzVK5Z7d1uddaPe5cn8dpqR1kQ==",
+  "dgSpecHash": "Lc93++zFdcHQMxNnkMqclkA7t+a9cbtC0OkKWUeyEOl9RoVZUl86AO2jdT9aWPqiZkM+ekcCdlEx1i2IyjyeGg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Jonas\\Desktop\\MeatsStore_ CSharp 03122019\\Database\\Database.csproj",
+  "projectFilePath": "C:\\Users\\Jonas\\Documents\\GitHub\\Landlyst-24062020\\MeatsStore_ CSharp 03122019\\Database\\Database.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jonas\\.nuget\\packages\\microsoft.aspnet.signalr.core\\2.4.1\\microsoft.aspnet.signalr.core.2.4.1.nupkg.sha512",
     "C:\\Users\\Jonas\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",

@@ -610,11 +610,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jonas\\Desktop\\MeatsStore_ CSharp 03122019\\Database\\Database.csproj",
+      "projectUniqueName": "C:\\Users\\Jonas\\Documents\\GitHub\\Landlyst-24062020\\MeatsStore_ CSharp 03122019\\Database\\Database.csproj",
       "projectName": "Database",
-      "projectPath": "C:\\Users\\Jonas\\Desktop\\MeatsStore_ CSharp 03122019\\Database\\Database.csproj",
+      "projectPath": "C:\\Users\\Jonas\\Documents\\GitHub\\Landlyst-24062020\\MeatsStore_ CSharp 03122019\\Database\\Database.csproj",
       "packagesPath": "C:\\Users\\Jonas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jonas\\Desktop\\MeatsStore_ CSharp 03122019\\Database\\obj\\",
+      "outputPath": "C:\\Users\\Jonas\\Documents\\GitHub\\Landlyst-24062020\\MeatsStore_ CSharp 03122019\\Database\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
