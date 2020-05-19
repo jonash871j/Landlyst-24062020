@@ -1,4 +1,8 @@
 ﻿
+p{
+    font-size: 20px;
+}
+
 .checkButtonList {
     margin:auto;
 }
@@ -60,6 +64,7 @@
     position:absolute;
     top:0;
     margin-left:200px;
+    margin-top: 10px;
 }
 
 

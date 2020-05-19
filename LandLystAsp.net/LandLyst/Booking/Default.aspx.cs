@@ -16,8 +16,8 @@ namespace LandLyst.Booking
             sr.Title = "jens";
             sr.Path = "2r3wrwe";
             SearchResult sr2 = new SearchResult();
-            sr.Title = "Kasper";
-            sr.Path = "jaaa";
+            sr2.Title = "Kasper";
+            sr2.Path = "jaaa";
             List<SearchResult> list = new List<SearchResult>();
             list.Add(sr);
             list.Add(sr2);

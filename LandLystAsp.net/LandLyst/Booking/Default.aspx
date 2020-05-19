@@ -49,10 +49,10 @@
                     </div>
                 </div>
 
-                <div class="row informationBox">
+                <%--<div class="row informationBox">
                     <asp:TextBox runat="server" ReadOnly="true">Information om rum</asp:TextBox>
 
-                </div>
+                </div>--%>
             </div>
             <div class="col-sm-7">
 
@@ -70,7 +70,8 @@
                             <img class="roomCardImage" src="../Content/Image/HotelRoom.png" />
 
                             <div class="roomCardInformation">
-                                <%#Eval("Title") %>
+                               <p>Værelse: <%#Eval("Title") %></p> 
+                                <p></p>
                             </div>
                         </div>
                         <%--<tr>--%>
