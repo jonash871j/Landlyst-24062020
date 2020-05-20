@@ -14,7 +14,7 @@
                             <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" />
                             <NextPrevStyle VerticalAlign="Bottom" />
                             <OtherMonthDayStyle ForeColor="#808080" />
-                            <SelectedDayStyle BackColor="#666666" Font-Bold="True" ForeColor="White"/>
+                            <SelectedDayStyle BackColor="#666666" Font-Bold="True" ForeColor="White" />
                             <SelectorStyle BackColor="#CCCCCC" />
                             <TitleStyle BackColor="#999999" BorderColor="Black" Font-Bold="True" />
                             <TodayDayStyle BackColor="#CCCCCC" ForeColor="Black" />
@@ -38,17 +38,38 @@
                 </div>
                 <%-- Row with room addition checkboxes --%>
                 <%-- Not using asp:CheckBoxList since we can't get the design we want --%>
-                <div class="row" style="margin-top: 20px">
-                    <div class="col-sm-12">
-                        <asp:CheckBoxList runat="server" Class="checkButtonList" Style="margin: auto" RepeatDirection="Horizontal" Font-Size="15px">
-                            <asp:ListItem>Køkken</asp:ListItem>
-                            <asp:ListItem>Dobbeltseng</asp:ListItem>
-                            <asp:ListItem>2 enkelt senge</asp:ListItem>
-                            <asp:ListItem>Jacuzzi</asp:ListItem>
-                            <asp:ListItem>Badekar</asp:ListItem>
-                            <asp:ListItem>Altan</asp:ListItem>
-                        </asp:CheckBoxList>
-                    </div>
+
+                <div class="CheckBoxDiv">
+                    <label class="InputContainer">
+                        Køkken
+                <asp:CheckBox ID="CheckBox1" runat="server" />
+                        <span></span>
+                    </label>
+                    <label class="InputContainer">
+                        Dobbeltseng
+                <asp:CheckBox ID="CheckBox2" runat="server" />
+                        <span></span>
+                    </label>
+                    <label class="InputContainer">
+                        2 enkelt senge
+                <asp:CheckBox ID="CheckBox3" runat="server" />
+                        <span></span>
+                    </label>
+                    <label class="InputContainer">
+                        Jacuzzi
+                <asp:CheckBox ID="CheckBox4" runat="server" />
+                        <span></span>
+                    </label>
+                    <label class="InputContainer">
+                        Badekar
+                <asp:CheckBox ID="CheckBox5" runat="server" />
+                        <span></span>
+                    </label>
+                    <label class="InputContainer">
+                        Altan
+                <asp:CheckBox ID="CheckBox6" runat="server" />
+                        <span></span>
+                    </label>
                 </div>
 
                 <%--<div class="row informationBox">
@@ -68,13 +89,13 @@
                     </LayoutTemplate>
                     <%-- Creates a card for every available room --%>
                     <ItemTemplate>
-                        
+
                         <div class="roomCard">
 
                             <img class="roomCardImage" src="../Content/Image/HotelRoom.png" />
 
                             <div class="roomCardInformation">
-                               <h5>Værelse: <%#Eval("Room") %></h5> 
+                                <h5>Værelse: <%#Eval("Room") %></h5>
                                 <br />
                                 <p><%#Eval("Icons") %></p>
                             </div>
