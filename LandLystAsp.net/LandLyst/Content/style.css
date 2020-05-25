@@ -1,29 +1,30 @@
 ﻿
-p{
-    font-size: 20px;
-}
+
 
 .checkButtonList {
-    margin:auto;
-}
-.checkButtonList input {
-    transform: scale(3);
-    margin: 15px 30% 0px;
-    color: white;
+    margin: auto;
 }
 
-.checkButtonList label {
-    /*margin-left: 25%;*/
-    margin-top: 15px;
-    /*margin-top:10px;*/
+    .checkButtonList input {
+        transform: scale(3);
+        margin: 15px 30% 0px;
+        color: white;
+    }
+
+    .checkButtonList label {
+        /*margin-left: 25%;*/
+        margin-top: 15px;
+        /*margin-top:10px;*/
+    }
+
+.calendar table {
+    margin: auto;
 }
 
-.calendar table{
-    margin:auto;
+.calendar h3 {
+    text-align: center;
 }
-.calendar h3{
-    text-align:center;
-}
+
 .row-center {
     margin: auto;
     max-width: 300px;
@@ -31,17 +32,18 @@ p{
 
 .informationBox {
     text-align: center;
-    
-}
-.informationBox input{
-    margin: auto;
-    width:70%;
-    height: 30%;
-    max-width: 70%;
-    min-width:150px;
-   
 }
 
+    .informationBox input {
+        margin: auto;
+        width: 70%;
+        height: 30%;
+        max-width: 70%;
+        min-width: 150px;
+    }
+
+
+/*Room Card Design*/
 .roomCard {
     width: 90%;
     margin: 0 20px;
@@ -50,24 +52,120 @@ p{
     height: 120px;
     overflow: hidden;
     border-radius: 5px;
-    z-index: -1;
+    z-index: 0;
     box-shadow: 0px 0px 20px -4px rgba(0, 0, 0, 1);
-    position:relative;
+    position: relative;
+    min-width: 340px;
 }
+
 .roomCardImage {
     width: 170px;
-    margin-right:100%;
+    margin-right: 100%;
+    margin-left: -30px;
     position: relative;
     overflow: hidden;
 }
+
 .roomCardInformation {
-    position:absolute;
-    top:0;
-    margin-left:200px;
+    position: absolute;
+    top: 0;
+    margin-left: 150px;
     margin-top: 10px;
 }
 
+    .roomCardInformation p {
+        font-size: 20px;
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        text-align: start;
+    }
+
+.roomCardBTN {
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-align: center;
+}
+
+    .roomCardBTN button {
+        height: 120px;
+        width: 85px;
+        border: none;
+        cursor: pointer;
+        background-color: #C7DFFF;
+        font-weight: 600;
+    }
 
 
 
 
+
+/*CheckBox Design*/
+
+.CheckBoxDiv{
+    margin-top: 25px;
+    text-align:center;
+}
+
+.InputContainer {
+    /*display: block;*/
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+    .InputContainer input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    .InputContainer span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        background-color: #C7DFFF;
+        border-radius: 2px;
+    }
+
+    .InputContainer:hover input ~ span {
+        background-color: #ABCCFF;
+    }
+
+    .InputContainer input:checked ~ span {
+        background-color: #578AFF;
+    }
+
+    .InputContainer span:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+
+    .InputContainer input:checked ~ span:after {
+        display: block;
+    }
+
+    .InputContainer span:after {
+        left: 9px;
+        top: 7px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+
+/*CheckBox Design End*/
