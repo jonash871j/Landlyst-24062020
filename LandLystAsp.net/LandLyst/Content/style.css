@@ -19,6 +19,7 @@
 
 .calendar table {
     margin: auto;
+    text-align: center;
 }
 
 .calendar h3 {
@@ -55,8 +56,9 @@
     z-index: 0;
     box-shadow: 0px 0px 20px -4px rgba(0, 0, 0, 1);
     position: relative;
-    min-width: 340px;
+    min-width: 400px;
 }
+
 
 .roomCardImage {
     width: 170px;
@@ -71,6 +73,7 @@
     top: 0;
     margin-left: 150px;
     margin-top: 10px;
+    text-align: start;
 }
 
     .roomCardInformation p {
@@ -158,9 +161,9 @@
 
     .InputContainer span:after {
         left: 9px;
-        top: 7px;
-        width: 5px;
-        height: 10px;
+        top: 5px;
+        width: 7px;
+        height: 13px;
         border: solid white;
         border-width: 0 3px 3px 0;
         -webkit-transform: rotate(45deg);

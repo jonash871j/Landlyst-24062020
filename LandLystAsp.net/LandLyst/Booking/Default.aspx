@@ -10,29 +10,29 @@
                     <div class="col-sm-6">
                         <%-- Start date calendar --%>
                         <h3>Start dato</h3>
-                        <asp:Calendar ID="startDatePicker" runat="server" BackColor="White" BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" Height="180px" Width="200px">
-                            <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" />
+                        <asp:Calendar ID="startDatePicker" runat="server" BackColor="White" BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" Font-Names="sans-serif" Font-Size="8pt" ForeColor="Black" Height="180px" Width="200px">
+                            <DayHeaderStyle BackColor="#f0f0f0" Font-Bold="True" Font-Size="8pt" />
                             <NextPrevStyle VerticalAlign="Bottom" />
-                            <OtherMonthDayStyle ForeColor="#808080" />
-                            <SelectedDayStyle BackColor="#666666" Font-Bold="True" ForeColor="White" />
+                            <OtherMonthDayStyle ForeColor="White" />
+                            <SelectedDayStyle BackColor="#a5c546" Font-Bold="True" ForeColor="White" />
                             <SelectorStyle BackColor="#CCCCCC" />
-                            <TitleStyle BackColor="#999999" BorderColor="Black" Font-Bold="True" />
-                            <TodayDayStyle BackColor="#CCCCCC" ForeColor="Black" />
-                            <WeekendDayStyle BackColor="#FFFFCC" />
+                            <TitleStyle BackColor="#65717f" BorderColor="Black" Font-Bold="false" ForeColor="White" Font-Size="12pt" />
+                            <TodayDayStyle BackColor="#9f9f9f" ForeColor="White" />
+                            <WeekendDayStyle BackColor="White" />
                         </asp:Calendar>
                     </div>
                     <%-- End date calendar --%>
                     <div class="col-sm-6">
                         <h3>Slut dato</h3>
-                        <asp:Calendar ID="endDatePicker" runat="server" BackColor="White" BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" Height="180px" Width="200px">
-                            <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" />
+                        <asp:Calendar ID="endDatePicker" runat="server" BackColor="White" BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" Font-Names="sans-serif" Font-Size="8pt" ForeColor="Black" Height="180px" Width="200px">
+                            <DayHeaderStyle BackColor="#f0f0f0" Font-Bold="True" Font-Size="8pt" />
                             <NextPrevStyle VerticalAlign="Bottom" />
-                            <OtherMonthDayStyle ForeColor="#808080" />
-                            <SelectedDayStyle BackColor="#666666" Font-Bold="True" ForeColor="White" />
+                            <OtherMonthDayStyle ForeColor="White" />
+                            <SelectedDayStyle BackColor="#a5c546" Font-Bold="True" ForeColor="White" />
                             <SelectorStyle BackColor="#CCCCCC" />
-                            <TitleStyle BackColor="#999999" BorderColor="Black" Font-Bold="True" />
-                            <TodayDayStyle BackColor="#CCCCCC" ForeColor="Black" />
-                            <WeekendDayStyle BackColor="#FFFFCC" />
+                            <TitleStyle BackColor="#65717f" BorderColor="Black" Font-Bold="false" ForeColor="White" Font-Size="12pt" />
+                            <TodayDayStyle BackColor="#9f9f9f" ForeColor="White" />
+                            <WeekendDayStyle BackColor="White" />
                         </asp:Calendar>
                     </div>
                 </div>
@@ -40,42 +40,45 @@
                 <%-- Not using asp:CheckBoxList since we can't get the design we want --%>
 
                 <div class="CheckBoxDiv">
+
                     <label class="InputContainer">
                         Køkken
                 <asp:CheckBox ID="CheckBox1" runat="server" />
                         <span></span>
                     </label>
+
                     <label class="InputContainer">
                         Dobbeltseng
                 <asp:CheckBox ID="CheckBox2" runat="server" />
                         <span></span>
                     </label>
+
                     <label class="InputContainer">
                         2 enkelt senge
                 <asp:CheckBox ID="CheckBox3" runat="server" />
                         <span></span>
                     </label>
+
                     <label class="InputContainer">
                         Jacuzzi
                 <asp:CheckBox ID="CheckBox4" runat="server" />
                         <span></span>
                     </label>
+
                     <label class="InputContainer">
                         Badekar
                 <asp:CheckBox ID="CheckBox5" runat="server" />
                         <span></span>
                     </label>
+
                     <label class="InputContainer">
                         Altan
                 <asp:CheckBox ID="CheckBox6" runat="server" />
                         <span></span>
                     </label>
+
                 </div>
 
-                <%--<div class="row informationBox">
-                    <asp:TextBox runat="server" ReadOnly="true">Information om rum</asp:TextBox>
-
-                </div>--%>
             </div>
             <div class="col-lg-7">
 
@@ -95,7 +98,7 @@
                             <img class="roomCardImage" src="../Content/Image/HotelRoom.png" />
 
                             <div class="roomCardInformation">
-                                <h5>Værelse: <%#Eval("Room") %></h5>
+                                <h4>Værelse: <%#Eval("Room") %></h4>
                                 <br />
                                 <p><%#Eval("Icons") %></p>
                             </div>
