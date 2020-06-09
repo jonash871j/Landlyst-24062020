@@ -2,6 +2,20 @@
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="BgPic"></div>
+    <div id="NavMenu" class="navBar">
+        <div>
+            <a href="..\">Forside</a>
+            <a href="#">Book</a>
+            <a href="..\test">Test</a>
+            <i class="fa fa-times" onclick="NavBarFunc('0px', '0', '-150px')"></i>
+        </div>
+    </div>
+    <div class="menuClass">
+        <button type="button" id="menuButton" onclick="NavBarFunc('150px', '1', '0px')" class="menuButton btn btn-light">
+            <i class="fas fa-bars"></i> Menu
+        </button>
+    </div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-5">
@@ -14,7 +28,7 @@
                             <DayHeaderStyle BackColor="#f0f0f0" Font-Bold="True" Font-Size="8pt" />
                             <NextPrevStyle VerticalAlign="Bottom" />
                             <OtherMonthDayStyle ForeColor="White" />
-                            <SelectedDayStyle BackColor="#a5c546" Font-Bold="True" ForeColor="White" />
+                            <SelectedDayStyle BackColor="#578AFF" Font-Bold="True" ForeColor="White" />
                             <SelectorStyle BackColor="#CCCCCC" />
                             <TitleStyle BackColor="#65717f" BorderColor="Black" Font-Bold="false" ForeColor="White" Font-Size="12pt" />
                             <TodayDayStyle BackColor="#9f9f9f" ForeColor="White" />
@@ -28,7 +42,7 @@
                             <DayHeaderStyle BackColor="#f0f0f0" Font-Bold="True" Font-Size="8pt" />
                             <NextPrevStyle VerticalAlign="Bottom" />
                             <OtherMonthDayStyle ForeColor="White" />
-                            <SelectedDayStyle BackColor="#a5c546" Font-Bold="True" ForeColor="White" />
+                            <SelectedDayStyle BackColor="#578AFF" Font-Bold="True" ForeColor="White" />
                             <SelectorStyle BackColor="#CCCCCC" />
                             <TitleStyle BackColor="#65717f" BorderColor="Black" Font-Bold="false" ForeColor="White" Font-Size="12pt" />
                             <TodayDayStyle BackColor="#9f9f9f" ForeColor="White" />
@@ -114,4 +128,11 @@
             </div>
         </div>
     </div>
+    <script>
+        function NavBarFunc(height, opacity, top) {
+            document.getElementById("NavMenu").style.height = height;            
+            document.getElementById("NavMenu").style.opacity = opacity;
+            document.getElementById("NavMenu").style.top = top;
+        }
+    </script>
 </asp:Content>
