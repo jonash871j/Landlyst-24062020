@@ -9,6 +9,8 @@
     height: 100%;
     width: 100%;
     background-image: url(../Content/Image/Villa-20-bedroom-2.jpg);
+    filter: blur(5px);
+    transform: scale(1.2);
 }
 
 .container-fluid {
@@ -155,18 +157,22 @@
     text-align: center;
 }
 
-.roomCardBTN button:hover {
+.roomCardBTN a:hover {
     background-color: #578AFF;
 }
 
-.roomCardBTN button {
+.roomCardBTN a {
+    display: table-cell;
     height: 120px;
     width: 85px;
+    color: black;
     border: none;
     cursor: pointer;
+    vertical-align: middle;
     background-color: #C7DFFF;
     font-weight: 600;
-    transition: 0.5s;   
+    transition: 0.5s;
+    text-decoration: none;
 }
 
 

@@ -10,6 +10,9 @@ namespace LandLyst.Booking
 {
     public partial class Default : System.Web.UI.Page
     {
+        private DateTime Sdate;
+        private DateTime Ldate;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             //Example of data binding

@@ -1,0 +1,70 @@
+﻿p {
+    color: blue;
+}
+
+.inputtext {
+    max-width: 100%;
+}
+
+.container-fluid {
+    position: absolute;
+    margin-top: 110px;
+    background-color: #ffffffa1;
+    box-shadow: 0px 0px 10px 10px #ffffffa1;
+}
+
+.BgPic {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url(../Content/Image/Villa-20-bedroom-2.jpg);
+    filter: blur(5px);
+    transform: scale(1.2);
+}
+.menuClass {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}
+
+
+.menuButton {
+    position: relative;
+    border-radius: 0;
+    padding: 10px 40px;
+    font-size: 18px;
+}
+
+.navBar {
+    position: fixed;
+    display: block;
+    top: -150px;
+    height: 0px;
+    width: 100%;
+    background-color: #fff;
+    z-index: 5;
+    opacity: 0;
+    transition: 1s;
+    box-shadow: 0px 0px 10px 0px black;
+}
+
+    .navBar div {
+        margin-top: 50px;
+        padding: 0px 100px;
+    }
+
+    .navBar a {
+        color: black;
+        font-size: 20px;
+        text-decoration: none;
+        padding: 0px 20px 0px 0px;
+    }
+
+    .navBar i {
+        position: relative;
+        color: black;
+        cursor: pointer;
+        font-size: 30px;
+        float: right;
+    }
