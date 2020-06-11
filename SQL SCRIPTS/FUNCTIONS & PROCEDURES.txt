@@ -1,0 +1,106 @@
+/*Selects all rooms where there is a reservation in the timespan*/
+CREATE or replace FUNCTION FindUnavailableRoomsOnPeriod(_startdate DATE, _enddate DATE) 
+Returns Table(room_number integer)
+as $$
+BEGIN
+/*Returns the rooms already reserved in period*/
+RETURN QUERY SELECT room.roomnumber from room 
+JOIN reservations
+ON reservations.roomnumber = room.roomnumber
+Where reservations.startdate <= _enddate AND reservations.enddate >= _startdate;
+
+END; $$
+LANGUAGE PLPGSQL;
+/*END FUNCTION*/
+/*Example for use of function     (StartDate, EndDate)*/
+Select * from FindUnavailableRoomsOnPeriod(DATE '2020-05-09', DATE '2020-06-09') 
+
+
+/* Used when user gets created in system */
+CREATE OR REPLACE PROCEDURE CreateCustomer(customeremail VARCHAR(345), 
+                                           customerpostal varchar(20),
+                                           customerfirstname varchar(50), 
+                                           customerlastname varchar(50),
+                                           customerphonenumber varchar(20),
+                                           customeraddress varchar(255),
+                                           customercountry varchar(60)
+                                          )
+LANGUAGE SQL
+AS $$
+
+    INSERT INTO Customer(email, postal, firstname, lastname, phonenumber, address, country) 
+    VALUES( customeremail, 
+            customerpostal, 
+            customerfirstname, 
+            customerlastname, 
+            customerphonenumber, 
+            customeraddress, 
+            customercountry);
+$$;
+/*End CreateCustomer Function*/
+/*Example of function*/
+call CreateCustomer(VARCHAR 'kav@gmail.com', VARCHAR '4600', VARCHAR 'Kasper',VARCHAR 'Jeppesen',VARCHAR '+4599999999', VARCHAR 'nogetvej 16', VARCHAR 'Danmark')
+
+/* When user makes a reservation*/
+CREATE OR REPLACE PROCEDURE MakeReservation(customeremail VARCHAR(345), customerroomnumber INTEGER, customerstartdate DATE, customerenddate DATE)
+LANGUAGE SQL
+AS $$
+    insert into Reservations(email, roomnumber, startdate, enddate, reservationsdate) VALUES(customeremail, customerroomnumber, customerstartdate, customerenddate, CURRENT_DATE)
+$$;
+
+/*Example of the Procedure*/
+call MakeReservation(VARCHAR(345) 'kav@gmail.com', 100, DATE '2020-06-09' , DATE '2020-06-13' );
+
+
+
+/*Return all roomnumbers*/
+CREATE OR REPLACE FUNCTION GetRoomNumbers()
+RETURNS TABLE(Room_number integer)
+AS $$
+BEGIN
+RETURN QUERY SELECT roomnumber FROM Room;
+END; $$
+LANGUAGE PLPGSQL;
+/*End of GetRoomNumbers Function*/
+/*Example of function*/
+select * from GetRoomNumbers();
+/*End function*/
+
+/**/
+CREATE OR REPLACE VIEW RoomDetails AS
+SELECT Room.roomnumber, Room.available, Room.cleaned, Room.price as RoomPrice, RoomAddition.name, RoomAddition.price as AdditionPrice
+FROM Room
+LEFT JOIN RoomsAdditions
+ON Room.roomnumber = RoomsAdditions.roomnumber
+LEFT JOIN RoomAddition
+ON RoomsAdditions.name = RoomAddition.name;
+
+/*Return information and additions about room*/
+CREATE OR REPLACE FUNCTION GetRoom(_RoomNumber integer)
+RETURNS TABLE(Room_number integer,
+			  available boolean,
+			  cleaned boolean,
+			  roomprice float,
+			  addition varchar,
+			  additionprice float)
+AS $$
+BEGIN
+RETURN QUERY select * from RoomDetails where RoomDetails.roomnumber = _RoomNumber;
+END; $$
+LANGUAGE PLPGSQL;
+/*End of GetRoom Function*/
+/*Example of function*/
+select * from GetRoom(100);
+/**/
+
+/*Deletes the reservation with the ordernumber*/
+CREATE OR REPLACE PROCEDURE DeleteReservationByOrderNumber(_ordernumber integer)
+LANGUAGE SQL
+AS $$
+DELETE FROM Reservations WHERE ordernumber = _ordernumber;
+$$;
+/*End procedure*/
+/*Example of procedure*/
+call DeleteReservationByOrderNumber(3);
+
+
