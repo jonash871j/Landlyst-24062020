@@ -68,12 +68,12 @@ select * from GetRoomNumbers();
 
 /**/
 CREATE OR REPLACE VIEW RoomDetails AS
-SELECT Room.roomnumber, Room.available, Room.cleaned, Room.price as RoomPrice, RoomAddition.name, RoomAddition.price as AdditionPrice
+SELECT Room.roomnumber, Room.available, Room.cleaned, Room.price as RoomPrice, RoomAddition.name as Addition, RoomAddition.price as AdditionPrice
 FROM Room
 LEFT JOIN RoomsAdditions
 ON Room.roomnumber = RoomsAdditions.roomnumber
 LEFT JOIN RoomAddition
-ON RoomsAdditions.name = RoomAddition.name;
+ON RoomsAdditions.name = RoomAddition.name
 
 /*Return information and additions about room*/
 CREATE OR REPLACE FUNCTION GetRoom(_RoomNumber integer)
@@ -102,5 +102,9 @@ $$;
 /*End procedure*/
 /*Example of procedure*/
 call DeleteReservationByOrderNumber(3);
+
+/*This shows a list of all available rooms to book*/
+Select * from room where NOT roomnumber in (SELECT * FROM FindUnavailableroomsonperiod(DATE '2020-06-08', DATE '2020-06-25'))
+
 
 
