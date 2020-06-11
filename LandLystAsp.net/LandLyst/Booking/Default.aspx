@@ -24,7 +24,7 @@
                     <div class="col-sm-6">
                         <%-- Start date calendar --%>
                         <h3>Start dato</h3>
-                        <asp:Calendar ID="startDatePicker" SelectionMode="Day" runat="server" BackColor="White" BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" Font-Names="sans-serif" Font-Size="8pt" ForeColor="Black" Height="180px" Width="200px" FirstDayOfWeek="Default">
+                        <asp:Calendar ID="startDatePicker" SelectionMode="Day" runat="server" BackColor="White" BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" Font-Names="sans-serif" Font-Size="8pt" ForeColor="Black" Height="180px" Width="200px" FirstDayOfWeek="Default" OnSelectionChanged="startDatePicker_SelectionChanged">
                             <DayHeaderStyle BackColor="#f0f0f0" Font-Bold="True" Font-Size="8pt" />
                             <NextPrevStyle VerticalAlign="Bottom" />
                             <OtherMonthDayStyle ForeColor="White" />
@@ -38,7 +38,7 @@
                     <%-- End date calendar --%>
                     <div class="col-sm-6">
                         <h3>Slut dato</h3>
-                        <asp:Calendar ID="endDatePicker" runat="server" BackColor="White" BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" Font-Names="sans-serif" Font-Size="8pt" ForeColor="Black" Height="180px" Width="200px">
+                        <asp:Calendar ID="endDatePicker" runat="server" BackColor="White" BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" Font-Names="sans-serif" Font-Size="8pt" ForeColor="Black" Height="180px" Width="200px" OnSelectionChanged="endDatePicker_SelectionChanged">
                             <DayHeaderStyle BackColor="#f0f0f0" Font-Bold="True" Font-Size="8pt" />
                             <NextPrevStyle VerticalAlign="Bottom" />
                             <OtherMonthDayStyle ForeColor="White" />

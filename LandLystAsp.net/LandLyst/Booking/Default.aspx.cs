@@ -10,8 +10,6 @@ namespace LandLyst.Booking
 {
     public partial class Default : System.Web.UI.Page
     {
-        private DateTime Sdate;
-        private DateTime Ldate;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -34,6 +32,37 @@ namespace LandLyst.Booking
             list.Add(sr2);
             RoomListView.DataSource = list;
             RoomListView.DataBind();
+        }
+
+        protected void startDatePicker_SelectionChanged(object sender, EventArgs e)
+        {
+            if (startDatePicker.SelectedDate < DateTime.Today)
+            {
+                startDatePicker.SelectedDate = DateTime.Today;
+            }
+
+            if ((startDatePicker.SelectedDate > endDatePicker.SelectedDate) && (endDatePicker.SelectedDate != new DateTime()))
+            {
+                DateTime date = endDatePicker.SelectedDate;
+                date = date.AddDays(-7);
+                startDatePicker.SelectedDate = date;
+            }
+
+        }
+
+        protected void endDatePicker_SelectionChanged(object sender, EventArgs e)
+        {
+            if (endDatePicker.SelectedDate > startDatePicker.SelectedDate.AddMonths(1))
+            {
+                endDatePicker.SelectedDate = startDatePicker.SelectedDate.AddMonths(1);
+            }
+
+            if (endDatePicker.SelectedDate < startDatePicker.SelectedDate && (startDatePicker.SelectedDate != new DateTime()))
+            {
+                DateTime date = startDatePicker.SelectedDate;
+                date = date.AddDays(7);
+                endDatePicker.SelectedDate = date;
+            }
         }
     }
 
