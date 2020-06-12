@@ -33,22 +33,22 @@ namespace LandLyst.Booking
         protected global::System.Web.UI.WebControls.Calendar endDatePicker;
 
         /// <summary>
-        /// CheckBox1 control.
+        /// DoubleBed control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox1;
+        protected global::System.Web.UI.WebControls.CheckBox DoubleBed;
 
         /// <summary>
-        /// CheckBox2 control.
+        /// TwoBeds control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox2;
+        protected global::System.Web.UI.WebControls.CheckBox TwoBeds;
 
         /// <summary>
         /// CheckBox3 control.
@@ -85,6 +85,15 @@ namespace LandLyst.Booking
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox CheckBox6;
+
+        /// <summary>
+        /// SearchBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button SearchBtn;
 
         /// <summary>
         /// RoomListView control.

@@ -108,6 +108,11 @@
         min-width: 150px;
     }
 
+.btn {
+    border-radius: 0px;
+    padding: 5px 20px;
+    background-color: white;
+}
 
 .scrollmekanik {
     overflow-y: scroll;

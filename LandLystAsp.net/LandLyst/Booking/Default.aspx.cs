@@ -15,14 +15,7 @@ namespace LandLyst.Booking
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<int> roomNumbers = reception.GetRoomNumbers();
-            SearchResult[] searchResult = new SearchResult[roomNumbers.Count];
 
-            for (int i = 0; i < roomNumbers.Count; i++)
-                searchResult[i] = new SearchResult(reception.GetRoom(roomNumbers[i]));
-
-            RoomListView.DataSource = searchResult;
-            RoomListView.DataBind();
         }
 
         protected void startDatePicker_SelectionChanged(object sender, EventArgs e)
@@ -31,29 +24,33 @@ namespace LandLyst.Booking
             {
                 startDatePicker.SelectedDate = DateTime.Today;
             }
-
-            if ((startDatePicker.SelectedDate > endDatePicker.SelectedDate) && (endDatePicker.SelectedDate != new DateTime()))
+            else if ((startDatePicker.SelectedDate > endDatePicker.SelectedDate && endDatePicker.SelectedDate != new DateTime()) ||
+                (startDatePicker.SelectedDate == endDatePicker.SelectedDate) && (endDatePicker.SelectedDate != new DateTime()))
             {
-                DateTime date = endDatePicker.SelectedDate;
-                date = date.AddDays(-7);
-                startDatePicker.SelectedDate = date;
+                startDatePicker.SelectedDate = new DateTime();
             }
 
         }
 
         protected void endDatePicker_SelectionChanged(object sender, EventArgs e)
         {
-            if (endDatePicker.SelectedDate < startDatePicker.SelectedDate && (startDatePicker.SelectedDate != new DateTime()))
+            if ((endDatePicker.SelectedDate < startDatePicker.SelectedDate && startDatePicker.SelectedDate != new DateTime()) ||
+                (endDatePicker.SelectedDate < DateTime.Today) ||
+                (endDatePicker.SelectedDate == startDatePicker.SelectedDate && startDatePicker.SelectedDate != new DateTime()))
             {
-                DateTime date = startDatePicker.SelectedDate;
-                date = date.AddDays(7);
-                endDatePicker.SelectedDate = date;
+                endDatePicker.SelectedDate = new DateTime();
             }
+        }
 
-            if (endDatePicker.SelectedDate > startDatePicker.SelectedDate.AddMonths(1) && (startDatePicker.SelectedDate != new DateTime()))
-            {
-                endDatePicker.SelectedDate = startDatePicker.SelectedDate.AddMonths(1);
-            }
+        protected void SearchBtn_Click(object sender, EventArgs e)
+        {
+            List<int> roomNumbers = reception.GetRoomNumbers();
+            SearchResult[] searchResult = new SearchResult[roomNumbers.Count];
+
+            for (int i = 0; i < roomNumbers.Count; i++)
+                searchResult[i] = new SearchResult(reception.GetRoom(roomNumbers[i]), (int)(endDatePicker.SelectedDate - startDatePicker.SelectedDate).TotalDays);
+            RoomListView.DataSource = searchResult;
+            RoomListView.DataBind();
         }
     }
 
@@ -62,7 +59,7 @@ namespace LandLyst.Booking
         List<string> additions = new List<string>();
 
         public int Room { get; private set; }
-        public double Price { get; private set; }
+        public string Price { get; private set; }
         public string Icons
         {
             get
@@ -84,9 +81,10 @@ namespace LandLyst.Booking
                 return icons;
             }
         }
-        public SearchResult(Room room)
+        public SearchResult(Room room, int days)
         {
             Room = room.Number;
+            Price = room.GetTotalPrice(days);
             for (int i = 0; i < room.Additions.Count; i++)
                 additions.Add(room.Additions[i].Addtion);
         }

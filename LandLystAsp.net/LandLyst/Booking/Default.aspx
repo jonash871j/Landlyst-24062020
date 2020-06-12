@@ -19,6 +19,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-5">
+                <div style="position: relative;
+    top: 50%;
+    transform: translate(0, -50%);">
+
                 <%-- Calendar row --%>
                 <div class="row calendar">
                     <div class="col-sm-6">
@@ -55,20 +59,20 @@
 
                 <div class="CheckBoxDiv">
 
-                    <label class="InputContainer">
-                        Køkken
-                <asp:CheckBox ID="CheckBox1" runat="server" />
-                        <span></span>
-                    </label>
 
                     <label class="InputContainer">
                         Dobbeltseng
-                <asp:CheckBox ID="CheckBox2" runat="server" />
+                <asp:CheckBox ID="DoubleBed" onclick="BedCheck(0)" runat="server" />
                         <span></span>
                     </label>
 
                     <label class="InputContainer">
                         2 enkelt senge
+                <asp:CheckBox ID="TwoBeds" onclick="BedCheck(1)" runat="server" />
+                        <span></span>
+                    </label>
+                    <label class="InputContainer">
+                        Køkken
                 <asp:CheckBox ID="CheckBox3" runat="server" />
                         <span></span>
                     </label>
@@ -90,7 +94,9 @@
                 <asp:CheckBox ID="CheckBox6" runat="server" />
                         <span></span>
                     </label>
-
+                    <br />
+                    <asp:Button Text="Søg Værelser" runat="server" CssClass="btn btn-light" ID="SearchBtn" OnClick="SearchBtn_Click" />
+                </div>
                 </div>
 
             </div>
@@ -112,8 +118,8 @@
                             <img class="roomCardImage" src="../Content/Image/HotelRoom.png" />
 
                             <div class="roomCardInformation">
-                                <h4>Værelse: <%#Eval("Room") %> Price: <%#Eval("Price") %></h4>
-                                <br />
+                                <h4>Værelse: <%#Eval("Room") %> </h4>
+                                <h5>Price: <%#Eval("Price") %></h5>
                                 <p><%#Eval("Icons") %></p>
                             </div>
                             <div class="roomCardBTN">
@@ -133,6 +139,19 @@
             document.getElementById("NavMenu").style.height = height;            
             document.getElementById("NavMenu").style.opacity = opacity;
             document.getElementById("NavMenu").style.top = top;
+        }
+
+        function BedCheck(checkNr) {
+            var DoubleBed = document.getElementById("MainContent_DoubleBed");
+            var twoBeds = document.getElementById("MainContent_TwoBeds");
+            if (twoBeds.checked == true && DoubleBed.checked == true) {
+                if (checkNr == 0) {
+                    twoBeds.checked = false;
+                }
+                else if (checkNr == 1) {
+                    DoubleBed.checked = false;
+                }
+            }
         }
     </script>
 </asp:Content>

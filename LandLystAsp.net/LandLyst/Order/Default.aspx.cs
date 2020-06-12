@@ -14,8 +14,9 @@ namespace LandLyst.Order
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request["SDate"] == new DateTime().ToString("dd-MM-yyyy")
-                Request["LDate"] == new DateTime().ToString("dd-MM-yyyy")
+            if (
+                Request["SDate"] == new DateTime().ToString("dd-MM-yyyy") ||
+                Request["LDate"] == new DateTime().ToString("dd-MM-yyyy") ||
                 string.IsNullOrEmpty(Request["SDate"]) ||
                 string.IsNullOrEmpty(Request["LDate"]))
                 Response.Redirect(@"..\Booking");
@@ -41,7 +42,7 @@ namespace LandLyst.Order
                     customer,
                     reception.GetRoom(int.Parse(Request["Room"])),
                     Convert.ToDateTime(Request["SDate"]),
-                    Convert.ToDateTime(Request["EDate"])
+                    Convert.ToDateTime(Request["LDate"])
                 );
                 reception.CreateReservation(reservation);
             }
