@@ -109,6 +109,11 @@
     }
 
 
+.scrollmekanik {
+    overflow-y: scroll;
+    height: 660px;
+}
+
 /*Room Card Design*/
 .roomCard {
     width: 90%;

@@ -94,7 +94,7 @@
                 </div>
 
             </div>
-            <div class="col-lg-7">
+            <div class="col-lg-7 scrollmekanik">
 
 
                 <%-- List with rooms --%>
@@ -112,12 +112,12 @@
                             <img class="roomCardImage" src="../Content/Image/HotelRoom.png" />
 
                             <div class="roomCardInformation">
-                                <h4>Værelse: <%#Eval("Room") %></h4>
+                                <h4>Værelse: <%#Eval("Room") %> Price: <%#Eval("Price") %></h4>
                                 <br />
                                 <p><%#Eval("Icons") %></p>
                             </div>
                             <div class="roomCardBTN">
-                                <a href="..\Order\?Room=<%#Eval("Room")%>&SDate=<%Response.Write(startDatePicker.SelectedDate.ToString());%>&LDate=<%Response.Write(endDatePicker.SelectedDate.ToString());%>">
+                                <a href="..\Order\?Room=<%#Eval("Room")%>&SDate=<%Response.Write(startDatePicker.SelectedDate.ToString("dd-MM-yyyy"));%>&LDate=<%Response.Write(endDatePicker.SelectedDate.ToString("dd-MM-yyyy"));%>">
                                     BOOK NU
                                 </a>
                             </div>

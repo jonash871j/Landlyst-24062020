@@ -21,25 +21,29 @@
                   <div class="col-sm-1"></div>
             <div class="col-sm">
                 <div class="form-group" style="display: flex;">
-                    <asp:TextBox runat="server" CssClass="form-control inputtext" placeholder="Fornavn"/>  
-                    <asp:TextBox runat="server" CssClass="form-control inputtext" placeholder="Efternavn"/>  
+                    <asp:TextBox runat="server" ID="tb_firstName" CssClass="form-control inputtext" placeholder="Fornavn"/>  
+                    <asp:TextBox runat="server" ID="tb_lastName" CssClass="form-control inputtext" placeholder="Efternavn"/>  
                 </div>
                 <div class="form-group">
-                <asp:TextBox runat="server" CssClass="form-control inputtext" placeholder="Telefon nummer"/> 
+                <asp:TextBox runat="server" ID="tb_phoneNumber" CssClass="form-control inputtext" placeholder="Telefon nummer"/> 
                 </div>
                 <div class="form-group">
-                <asp:TextBox runat="server" CssClass="form-control inputtext" placeholder="Email"/> 
+                <asp:TextBox runat="server" ID="tb_email" CssClass="form-control inputtext" placeholder="Email"/> 
                     </div>
                 <div class="form-group">
-                <asp:TextBox runat="server" CssClass="form-control inputtext" placeholder="Addresse"/> 
+                <asp:TextBox runat="server" ID="tb_address" CssClass="form-control inputtext" placeholder="Addresse"/> 
                     </div>
                 <div class="form-group">
-                <asp:TextBox runat="server" CssClass="form-control inputtext" placeholder="Postnr"/> 
+                <asp:TextBox runat="server" ID="tb_postal" CssClass="form-control inputtext" placeholder="Postnr"/> 
                     </div>
                 <div class="form-group">
-                <asp:TextBox runat="server" CssClass="form-control inputtext" placeholder="By"/>
+                <asp:TextBox runat="server" ID="tb_country" CssClass="form-control inputtext" placeholder="Land"/> 
                     </div>
-                <asp:Button Text="text" runat="server" />
+                <div class="form-group">
+                <asp:TextBox runat="server" ID="tb_city" CssClass="form-control inputtext" placeholder="By"/>
+                    </div>
+                <asp:Button Text="Reservere" ID="bn_reserve" OnClick="bn_reserve_Click" runat="server" />
+                <asp:Label runat="server" ID="lb_error" Text="[ERROR TEXT]"/>
             </div>
             <div class="col-sm">
                 <p>
@@ -54,7 +58,7 @@
     </div>
     <script>
         function NavBarFunc(height, opacity, top) {
-            document.getElementById("NavMenu").style.height = height;            
+            document.getElementById("NavMenu").style.height = height;
             document.getElementById("NavMenu").style.opacity = opacity;
             document.getElementById("NavMenu").style.top = top;
         }
