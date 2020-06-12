@@ -5,76 +5,88 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using LandLystLib;
 
 namespace LandLyst.Booking
 {
     public partial class Default : System.Web.UI.Page
     {
-        private DateTime Sdate;
-        private DateTime Ldate;
+        private static Reception reception = new Reception("Server=127.0.0.1; Port=5432; User Id=postgres; Password=123; Database=Landlyst;");
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Example of data binding
-            SearchResult sr = new SearchResult();
-            sr.Room = 12;
-            sr.Additions = new bool[6];
-            sr.Additions[0] = true;
-            SearchResult sr2 = new SearchResult();
-            sr2.Room = 54;
-            sr2.Additions = new bool[6];
-            sr2.Additions[0] = true;
-            sr2.Additions[1] = true;
-            sr2.Additions[2] = true;
-            sr2.Additions[3] = true;
-            sr2.Additions[4] = true;
-            sr2.Additions[5] = true;
-            List<SearchResult> list = new List<SearchResult>();
-            list.Add(sr);
-            list.Add(sr2);
-            RoomListView.DataSource = list;
+
+        }
+
+        protected void startDatePicker_SelectionChanged(object sender, EventArgs e)
+        {
+            if (startDatePicker.SelectedDate < DateTime.Today)
+            {
+                startDatePicker.SelectedDate = DateTime.Today;
+            }
+            else if ((startDatePicker.SelectedDate > endDatePicker.SelectedDate && endDatePicker.SelectedDate != new DateTime()) ||
+                (startDatePicker.SelectedDate == endDatePicker.SelectedDate) && (endDatePicker.SelectedDate != new DateTime()))
+            {
+                startDatePicker.SelectedDate = new DateTime();
+            }
+
+        }
+
+        protected void endDatePicker_SelectionChanged(object sender, EventArgs e)
+        {
+            if ((endDatePicker.SelectedDate < startDatePicker.SelectedDate && startDatePicker.SelectedDate != new DateTime()) ||
+                (endDatePicker.SelectedDate < DateTime.Today) ||
+                (endDatePicker.SelectedDate == startDatePicker.SelectedDate && startDatePicker.SelectedDate != new DateTime()))
+            {
+                endDatePicker.SelectedDate = new DateTime();
+            }
+        }
+
+        protected void SearchBtn_Click(object sender, EventArgs e)
+        {
+            List<int> roomNumbers = reception.GetRoomNumbers();
+            SearchResult[] searchResult = new SearchResult[roomNumbers.Count];
+
+            for (int i = 0; i < roomNumbers.Count; i++)
+                searchResult[i] = new SearchResult(reception.GetRoom(roomNumbers[i]), (int)(endDatePicker.SelectedDate - startDatePicker.SelectedDate).TotalDays);
+            RoomListView.DataSource = searchResult;
             RoomListView.DataBind();
         }
     }
 
     class SearchResult
     {
-        public int Room { get; set; }
-        public bool[] Additions { get; set; }
+        List<string> additions = new List<string>();
+
+        public int Room { get; private set; }
+        public string Price { get; private set; }
         public string Icons
         {
             get
             {
-                //Makes a string with all the icons needed.
-                string iconString = "";
-                if (Additions[0] == true)
+                string icons = "";
+                for (int i = 0; i < additions.Count; i++)
                 {
-                    iconString += $"{(char)0xf756} ";
+                    switch (additions[i])
+                    {
+                        case "Altan": icons += $"{(char)0xf756} "; continue;
+                        case "Dobbeltseng": icons += $"{(char)0xf236} "; continue;
+                        case "2 enkeltsenge": icons += $"{(char)0xf236}{(char)0xf236} "; continue;
+                        case "Badekar": icons += $"{(char)0xf2cd} "; continue;
+                        case "Jacuzzi": icons += $"{(char)0xf593} "; continue;
+                        case "Eget køkken": icons += $"{(char)0xf517} "; continue;
+                        default: continue;
+                    }
                 }
-                if (Additions[1] == true)
-                {
-                    iconString += $"{(char)0xf236} ";
-                }
-                if (Additions[2] == true)
-                {
-                    iconString += $"{(char)0xf236} ";
-                }
-                if (Additions[3] == true)
-                {
-                    iconString += $"{(char)0xf2cd} ";
-                }
-                if (Additions[4] == true)
-                {
-                    iconString += $"{(char)0xf593} ";
-                }
-                if (Additions[5] == true)
-                {
-                    iconString += $"{(char)0xf517} ";
-                }
-
-                return iconString;
+                return icons;
             }
         }
-
+        public SearchResult(Room room, int days)
+        {
+            Room = room.Number;
+            Price = room.GetTotalPrice(days);
+            for (int i = 0; i < room.Additions.Count; i++)
+                additions.Add(room.Additions[i].Addtion);
+        }
     }
 }

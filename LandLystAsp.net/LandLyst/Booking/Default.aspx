@@ -19,12 +19,16 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-5">
+                <div style="position: relative;
+    top: 50%;
+    transform: translate(0, -50%);">
+
                 <%-- Calendar row --%>
                 <div class="row calendar">
                     <div class="col-sm-6">
                         <%-- Start date calendar --%>
                         <h3>Start dato</h3>
-                        <asp:Calendar ID="startDatePicker" SelectionMode="Day" runat="server" BackColor="White" BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" Font-Names="sans-serif" Font-Size="8pt" ForeColor="Black" Height="180px" Width="200px" FirstDayOfWeek="Default">
+                        <asp:Calendar ID="startDatePicker" SelectionMode="Day" runat="server" BackColor="White" BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" Font-Names="sans-serif" Font-Size="8pt" ForeColor="Black" Height="180px" Width="200px" FirstDayOfWeek="Default" OnSelectionChanged="startDatePicker_SelectionChanged">
                             <DayHeaderStyle BackColor="#f0f0f0" Font-Bold="True" Font-Size="8pt" />
                             <NextPrevStyle VerticalAlign="Bottom" />
                             <OtherMonthDayStyle ForeColor="White" />
@@ -38,7 +42,7 @@
                     <%-- End date calendar --%>
                     <div class="col-sm-6">
                         <h3>Slut dato</h3>
-                        <asp:Calendar ID="endDatePicker" runat="server" BackColor="White" BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" Font-Names="sans-serif" Font-Size="8pt" ForeColor="Black" Height="180px" Width="200px">
+                        <asp:Calendar ID="endDatePicker" runat="server" BackColor="White" BorderColor="#999999" CellPadding="4" DayNameFormat="Shortest" Font-Names="sans-serif" Font-Size="8pt" ForeColor="Black" Height="180px" Width="200px" OnSelectionChanged="endDatePicker_SelectionChanged">
                             <DayHeaderStyle BackColor="#f0f0f0" Font-Bold="True" Font-Size="8pt" />
                             <NextPrevStyle VerticalAlign="Bottom" />
                             <OtherMonthDayStyle ForeColor="White" />
@@ -55,20 +59,20 @@
 
                 <div class="CheckBoxDiv">
 
-                    <label class="InputContainer">
-                        Køkken
-                <asp:CheckBox ID="CheckBox1" runat="server" />
-                        <span></span>
-                    </label>
 
                     <label class="InputContainer">
                         Dobbeltseng
-                <asp:CheckBox ID="CheckBox2" runat="server" />
+                <asp:CheckBox ID="DoubleBed" onclick="BedCheck(0)" runat="server" />
                         <span></span>
                     </label>
 
                     <label class="InputContainer">
                         2 enkelt senge
+                <asp:CheckBox ID="TwoBeds" onclick="BedCheck(1)" runat="server" />
+                        <span></span>
+                    </label>
+                    <label class="InputContainer">
+                        Køkken
                 <asp:CheckBox ID="CheckBox3" runat="server" />
                         <span></span>
                     </label>
@@ -90,11 +94,13 @@
                 <asp:CheckBox ID="CheckBox6" runat="server" />
                         <span></span>
                     </label>
-
+                    <br />
+                    <asp:Button Text="Søg Værelser" runat="server" CssClass="btn btn-light" ID="SearchBtn" OnClick="SearchBtn_Click" />
+                </div>
                 </div>
 
             </div>
-            <div class="col-lg-7">
+            <div class="col-lg-7 scrollmekanik">
 
 
                 <%-- List with rooms --%>
@@ -112,12 +118,12 @@
                             <img class="roomCardImage" src="../Content/Image/HotelRoom.png" />
 
                             <div class="roomCardInformation">
-                                <h4>Værelse: <%#Eval("Room") %></h4>
-                                <br />
+                                <h4>Værelse: <%#Eval("Room") %> </h4>
+                                <h5>Price: <%#Eval("Price") %></h5>
                                 <p><%#Eval("Icons") %></p>
                             </div>
                             <div class="roomCardBTN">
-                                <a href="..\Order\?Room=<%#Eval("Room")%>&SDate=<%Response.Write(startDatePicker.SelectedDate.ToString());%>&LDate=<%Response.Write(endDatePicker.SelectedDate.ToString());%>">
+                                <a href="..\Order\?Room=<%#Eval("Room")%>&SDate=<%Response.Write(startDatePicker.SelectedDate.ToString("dd-MM-yyyy"));%>&LDate=<%Response.Write(endDatePicker.SelectedDate.ToString("dd-MM-yyyy"));%>">
                                     BOOK NU
                                 </a>
                             </div>
@@ -133,6 +139,19 @@
             document.getElementById("NavMenu").style.height = height;            
             document.getElementById("NavMenu").style.opacity = opacity;
             document.getElementById("NavMenu").style.top = top;
+        }
+
+        function BedCheck(checkNr) {
+            var DoubleBed = document.getElementById("MainContent_DoubleBed");
+            var twoBeds = document.getElementById("MainContent_TwoBeds");
+            if (twoBeds.checked == true && DoubleBed.checked == true) {
+                if (checkNr == 0) {
+                    twoBeds.checked = false;
+                }
+                else if (checkNr == 1) {
+                    DoubleBed.checked = false;
+                }
+            }
         }
     </script>
 </asp:Content>
