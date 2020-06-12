@@ -13,7 +13,7 @@ END; $$
 LANGUAGE PLPGSQL;
 /*END FUNCTION*/
 /*Example for use of function     (StartDate, EndDate)*/
-Select * from FindUnavailableRoomsOnPeriod(DATE '2020-05-09', DATE '2020-06-09') 
+Select * from FindUnavailableRoomsOnPeriod(DATE '2020-05-09', DATE '2020-06-09');
 
 
 /* Used when user gets created in system */
@@ -39,7 +39,7 @@ AS $$
 $$;
 /*End CreateCustomer Function*/
 /*Example of function*/
-call CreateCustomer(VARCHAR 'kav@gmail.com', VARCHAR '4600', VARCHAR 'Kasper',VARCHAR 'Jeppesen',VARCHAR '+4599999999', VARCHAR 'nogetvej 16', VARCHAR 'Danmark')
+call CreateCustomer(VARCHAR 'kav@gmail.com', VARCHAR '4600', VARCHAR 'Kasper',VARCHAR 'Jeppesen',VARCHAR '+4599999999', VARCHAR 'nogetvej 16', VARCHAR 'Danmark');
 
 /* When user makes a reservation*/
 CREATE OR REPLACE PROCEDURE MakeReservation(customeremail VARCHAR(345), customerroomnumber INTEGER, customerstartdate DATE, customerenddate DATE)
@@ -76,21 +76,22 @@ LEFT JOIN RoomAddition
 ON RoomsAdditions.name = RoomAddition.name
 
 /*Return information and additions about room*/
-CREATE OR REPLACE FUNCTION GetRoom(_RoomNumber integer)
-RETURNS TABLE(Room_number integer,
-			  available boolean,
-			  cleaned boolean,
-			  roomprice float,
-			  addition varchar,
-			  additionprice float)
-AS $$
+/*Returns a table with a room*/
+CREATE or replace FUNCTION FP_Getroom(room_number integer) 
+Returns Table(roomnumber integer, available boolean, cleaned boolean, price float)
+as $$
 BEGIN
-RETURN QUERY select * from RoomDetails where RoomDetails.roomnumber = _RoomNumber;
+
+RETURN QUERY SELECT * FROM Room
+WHERE Room.roomnumber = room_number;
+
 END; $$
 LANGUAGE PLPGSQL;
+/*End of FP_GetRoom Function*/
 /*End of GetRoom Function*/
-/*Example of function*/
-select * from GetRoom(100);
+SELECT * FROM FP_Getroom(100);
+
+
 /**/
 
 /*Deletes the reservation with the ordernumber*/
@@ -106,5 +107,19 @@ call DeleteReservationByOrderNumber(3);
 /*This shows a list of all available rooms to book*/
 Select * from room where NOT roomnumber in (SELECT * FROM FindUnavailableroomsonperiod(DATE '2020-06-08', DATE '2020-06-25'))
 
+/*Returns a table with a room additions*/
+CREATE or replace FUNCTION FP_GetRoomAdditions(room_number integer) 
+Returns Table(roomaddition varchar, roomprice float)
+as $$
+BEGIN
 
+RETURN QUERY SELECT RoomAddition.name, RoomAddition.price FROM RoomAddition
+JOIN RoomsAdditions
+ON RoomsAdditions.name = RoomAddition.name
+WHERE RoomsAdditions.roomnumber = room_number;
+
+END; $$
+LANGUAGE PLPGSQL;
+/*Example*/
+SELECT * FROM FP_getroomadditions(100);
 
