@@ -1,5 +1,5 @@
 /*Selects all rooms where there is a reservation in the timespan*/
-CREATE or replace FUNCTION FindUnavailableRoomsOnPeriod(_startdate DATE, _enddate DATE) 
+CREATE or replace FUNCTION FP_FindUnavailableRoomsOnPeriod(_startdate DATE, _enddate DATE) 
 Returns Table(room_number integer)
 as $$
 BEGIN
@@ -13,7 +13,23 @@ END; $$
 LANGUAGE PLPGSQL;
 /*END FUNCTION*/
 /*Example for use of function     (StartDate, EndDate)*/
-Select * from FindUnavailableRoomsOnPeriod(DATE '2020-05-09', DATE '2020-06-09');
+Select * from FP_FindUnavailableRoomsOnPeriod(DATE '2020-05-09', DATE '2020-06-09');
+/**/
+
+/*Finds all rooms available to order on specified  period*/
+CREATE or replace FUNCTION FP_FindAvailableRooms(_startdate DATE, _enddate DATE) 
+Returns Table(room_number integer)
+as $$
+BEGIN
+RETURN QUERY SELECT DISTINCT roomnumber FROM room WHERE roomnumber NOT IN (SELECT * FROM FP_FindUnavailableRoomsOnPeriod(_startdate, _enddate))
+ORDER BY (roomnumber);
+END; $$
+LANGUAGE PLPGSQL;
+/*Example of use*/
+SELECT * FROM FP_Findavailablerooms(DATE '2020-06-5', DATE '2020-06-25')
+/**/
+
+
 
 
 /* Used when user gets created in system */
@@ -29,7 +45,7 @@ LANGUAGE SQL
 AS $$
 
     INSERT INTO Customer(email, postal, firstname, lastname, phonenumber, address, country) 
-    VALUES( customeremail, 
+    VALUES( LOWER(customeremail), 
             customerpostal, 
             customerfirstname, 
             customerlastname, 
@@ -122,4 +138,33 @@ END; $$
 LANGUAGE PLPGSQL;
 /*Example*/
 SELECT * FROM FP_getroomadditions(100);
+
+
+/*Returns a list with all reservations*/
+CREATE or replace FUNCTION FP_GetReservations() 
+Returns Table(ordernumber integer, email varchar, roomnumber integer, startdate DATE, enddate DATE, reservationdate DATE)
+as $$
+BEGIN
+RETURN QUERY SELECT * FROM Reservations;
+END; $$
+LANGUAGE PLPGSQL;
+/*Example of use*/
+SELECT * FROM FP_GetReservations()
+/**/
+
+/*Returns the Customer information based on the email*/
+CREATE or replace FUNCTION FP_GetCustomer(_email varchar) 
+Returns Table(email varchar, firstname varchar, lastname varchar, phonenumber varchar, address varchar, postal varchar, city varchar, country varchar)
+as $$
+BEGIN
+RETURN QUERY 
+SELECT customer.email,  customer.firstname, customer.lastname, customer.phonenumber, customer.address, customer.postal, City.city,customer.country FROM customer
+JOIN City
+ON customer.postal = City.postal
+ WHERE customer.email = _email;
+END; $$
+LANGUAGE PLPGSQL;
+/*Example of use*/
+select * from FP_GetCustomer('kav@gmail.com');
+/**/
 
