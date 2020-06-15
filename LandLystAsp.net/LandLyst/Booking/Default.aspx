@@ -61,41 +61,47 @@
 
 
                     <label class="InputContainer">
+                        <i class="fas fa-bed"></i>
                         Dobbeltseng
-                <asp:CheckBox ID="DoubleBed" onclick="BedCheck(0)" runat="server" />
+                <asp:CheckBox ID="DoubleBed" onclick="twoChecks(0, 'MainContent_DoubleBed', 'MainContent_TwoBeds')" runat="server" />
                         <span></span>
                     </label>
 
                     <label class="InputContainer">
+                        <i class="fas fa-bed"></i><i class="fas fa-bed"></i>
                         2 enkelt senge
-                <asp:CheckBox ID="TwoBeds" onclick="BedCheck(1)" runat="server" />
+                <asp:CheckBox ID="TwoBeds" onclick="twoChecks(1, 'MainContent_DoubleBed', 'MainContent_TwoBeds')" runat="server" />
                         <span></span>
                     </label>
                     <label class="InputContainer">
+                        <i class="fas fa-utensils"></i>
                         Køkken
-                <asp:CheckBox ID="CheckBox3" runat="server" />
+                <asp:CheckBox ID="cb_kitchen" runat="server" />
                         <span></span>
                     </label>
 
                     <label class="InputContainer">
+                        <i class="fas fa-hot-tub"></i>  
                         Jacuzzi
-                <asp:CheckBox ID="CheckBox4" runat="server" />
+                <asp:CheckBox ID="cb_jacuzzi" runat="server" />
                         <span></span>
                     </label>
 
                     <label class="InputContainer">
+                        <i class="fas fa-bath"></i>
                         Badekar
-                <asp:CheckBox ID="CheckBox5" runat="server" />
+                <asp:CheckBox ID="cb_bathtub" runat="server" />
                         <span></span>
                     </label>
 
                     <label class="InputContainer">
+                        <i class="fas fa-person-booth"></i>
                         Altan
-                <asp:CheckBox ID="CheckBox6" runat="server" />
+                <asp:CheckBox ID="cb_balcony" runat="server" />
                         <span></span>
                     </label>
                     <br />
-                    <asp:Button Text="Søg Værelser" runat="server" CssClass="btn btn-light" ID="SearchBtn" OnClick="SearchBtn_Click" />
+                    <asp:Button Text="Søg Værelser" runat="server" CssClass="btn btn-light" ID="SearchBtn" OnClick="SearchBtn_Click" Enabled="false" OnLoad="SearchBtn_Load"/>
                 </div>
                 </div>
 
@@ -134,24 +140,4 @@
             </div>
         </div>
     </div>
-    <script>
-        function NavBarFunc(height, opacity, top) {
-            document.getElementById("NavMenu").style.height = height;            
-            document.getElementById("NavMenu").style.opacity = opacity;
-            document.getElementById("NavMenu").style.top = top;
-        }
-
-        function BedCheck(checkNr) {
-            var DoubleBed = document.getElementById("MainContent_DoubleBed");
-            var twoBeds = document.getElementById("MainContent_TwoBeds");
-            if (twoBeds.checked == true && DoubleBed.checked == true) {
-                if (checkNr == 0) {
-                    twoBeds.checked = false;
-                }
-                else if (checkNr == 1) {
-                    DoubleBed.checked = false;
-                }
-            }
-        }
-    </script>
 </asp:Content>

@@ -15,7 +15,7 @@ namespace LandLyst.Booking
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void startDatePicker_SelectionChanged(object sender, EventArgs e)
@@ -30,6 +30,10 @@ namespace LandLyst.Booking
                 startDatePicker.SelectedDate = new DateTime();
             }
 
+            if (startDatePicker.SelectedDate != new DateTime() && endDatePicker.SelectedDate != new DateTime())
+            {
+                SearchBtn.Enabled = true;
+            }
         }
 
         protected void endDatePicker_SelectionChanged(object sender, EventArgs e)
@@ -40,17 +44,45 @@ namespace LandLyst.Booking
             {
                 endDatePicker.SelectedDate = new DateTime();
             }
+
+            if (startDatePicker.SelectedDate != new DateTime() && endDatePicker.SelectedDate != new DateTime())
+            {
+                SearchBtn.Enabled = true;
+            }
         }
 
         protected void SearchBtn_Click(object sender, EventArgs e)
         {
-            List<int> roomNumbers = reception.GetRoomNumbers();
-            SearchResult[] searchResult = new SearchResult[roomNumbers.Count];
+            if (startDatePicker.SelectedDate != new DateTime() && endDatePicker.SelectedDate != new DateTime())
+            {
+                List<string> additions = new List<string>();
 
-            for (int i = 0; i < roomNumbers.Count; i++)
-                searchResult[i] = new SearchResult(reception.GetRoom(roomNumbers[i]), (int)(endDatePicker.SelectedDate - startDatePicker.SelectedDate).TotalDays);
-            RoomListView.DataSource = searchResult;
-            RoomListView.DataBind();
+                if (cb_balcony.Checked)
+                    additions.Add("Altan");
+                if (DoubleBed.Checked)
+                    additions.Add("Dobbeltseng");
+                if (TwoBeds.Checked)
+                    additions.Add("2 enkeltsenge");
+                if (cb_bathtub.Checked)
+                    additions.Add("Badekar");
+                if (cb_jacuzzi.Checked)
+                    additions.Add("Jacuzzi");
+                if (cb_kitchen.Checked)
+                    additions.Add("Eget køkken");
+
+                List<Room> rooms = reception.GetAvailableRooms(additions, startDatePicker.SelectedDate, endDatePicker.SelectedDate);
+                SearchResult[] searchResult = new SearchResult[rooms.Count];
+
+                for (int i = 0; i < rooms.Count; i++)
+                    searchResult[i] = new SearchResult(rooms[i], (int)(endDatePicker.SelectedDate - startDatePicker.SelectedDate).TotalDays);
+                RoomListView.DataSource = searchResult;
+                RoomListView.DataBind();
+            }
+        }
+
+        protected void SearchBtn_Load(object sender, EventArgs e)
+        {
+
         }
     }
 
@@ -74,7 +106,7 @@ namespace LandLyst.Booking
                         case "2 enkeltsenge": icons += $"{(char)0xf236}{(char)0xf236} "; continue;
                         case "Badekar": icons += $"{(char)0xf2cd} "; continue;
                         case "Jacuzzi": icons += $"{(char)0xf593} "; continue;
-                        case "Eget køkken": icons += $"{(char)0xf517} "; continue;
+                        case "Eget køkken": icons += $"{(char)0xf2e7} "; continue;
                         default: continue;
                     }
                 }

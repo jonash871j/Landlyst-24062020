@@ -156,6 +156,7 @@
     <Content Include="Content\Image\Villa-20-bedroom-2.jpg" />
     <Content Include="Content\OrderStyle.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\SiteScripts.js" />
     <Content Include="Content\style.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />

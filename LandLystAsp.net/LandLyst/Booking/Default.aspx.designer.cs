@@ -51,40 +51,40 @@ namespace LandLyst.Booking
         protected global::System.Web.UI.WebControls.CheckBox TwoBeds;
 
         /// <summary>
-        /// CheckBox3 control.
+        /// cb_kitchen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox3;
+        protected global::System.Web.UI.WebControls.CheckBox cb_kitchen;
 
         /// <summary>
-        /// CheckBox4 control.
+        /// cb_jacuzzi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox4;
+        protected global::System.Web.UI.WebControls.CheckBox cb_jacuzzi;
 
         /// <summary>
-        /// CheckBox5 control.
+        /// cb_bathtub control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox5;
+        protected global::System.Web.UI.WebControls.CheckBox cb_bathtub;
 
         /// <summary>
-        /// CheckBox6 control.
+        /// cb_balcony control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox6;
+        protected global::System.Web.UI.WebControls.CheckBox cb_balcony;
 
         /// <summary>
         /// SearchBtn control.
