@@ -13,6 +13,35 @@
     transform: scale(1.2);
 }
 
+.confirmedDiv {
+    position: relative;
+    display: block;
+    height: 100px;
+    width: 500px;
+    background-color: white;
+    border: #f2e6cf solid 2px;
+    box-shadow: black 2px 2px 4px 0px;
+    margin: 300px auto;
+}
+
+.confirmedDiv p, a {
+    text-align:center;
+}
+
+.headtitle {
+    position: relative;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 30px;
+    border: black solid 2px;
+    font-weight: 300;
+    color: black;
+    background-color: #ffffff80;
+}
+
+
 .container-fluid {
     position: absolute;
     top: 130px;

@@ -20,12 +20,34 @@ namespace LandLyst.Order
                 string.IsNullOrEmpty(Request["SDate"]) ||
                 string.IsNullOrEmpty(Request["LDate"]))
                 Response.Redirect(@"..\Booking");
+
+            try
+            {
+                 if (!reception.CheckAvailableRoom(
+                    int.Parse(Request["Room"]),
+                    Convert.ToDateTime(Request["SDate"]),
+                    Convert.ToDateTime(Request["LDate"])
+                ))
+                Response.Redirect(@"..\Booking");
+            }
+            catch (Exception)
+            {
+                Response.Redirect(@"..\Booking");
+                throw;
+            }
+
+
+
+
         }
 
         protected void bn_reserve_Click(object sender, EventArgs e)
         {
             try
             {
+                if (ErrorFound())
+                    return;
+
                 Customer customer = new Customer(
                     tb_firstName.Text,
                     tb_lastName.Text,
@@ -45,6 +67,44 @@ namespace LandLyst.Order
                     Convert.ToDateTime(Request["LDate"])
                 );
                 reception.CreateReservation(reservation);
+                reception.SendOrder(reservation);
+                Response.Redirect(@"..\Confirmed.aspx");
+
+            }
+            catch (Exception exception)
+            {
+                lb_error.Text = exception.Message;
+            }
+        }
+
+        bool ErrorFound()
+        {
+            if (reception.CheckEmailExists(tb_email.Text))
+                lb_error.Text = "Email eksitere allerede!!!";
+            else
+                return false;
+            return true;
+        }
+
+        protected void Unnamed1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!reception.CheckEmailExists(tb_emailExist.Text))
+                {
+                    lb_error.Text = "Emailen eksitere ikke i systemet!";
+                    return;
+                }
+                Customer customer = reception.GetCustomer(tb_emailExist.Text);
+                Reservation reservation = new Reservation(
+                    customer,
+                    reception.GetRoom(int.Parse(Request["Room"])),
+                    Convert.ToDateTime(Request["SDate"]),
+                    Convert.ToDateTime(Request["LDate"])
+                );
+                reception.CreateReservation(reservation);
+                reception.SendOrder(reservation);
+                Response.Redirect(@"..\Confirmed.aspx");
             }
             catch (Exception exception)
             {

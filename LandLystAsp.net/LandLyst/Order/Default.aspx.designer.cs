@@ -15,22 +15,22 @@ namespace LandLyst.Order
     {
 
         /// <summary>
-        /// TextBox1 control.
+        /// tb_emailExist control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox tb_emailExist;
 
         /// <summary>
-        /// Button1 control.
+        /// bn_reserveExist control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button bn_reserveExist;
 
         /// <summary>
         /// tb_firstName control.

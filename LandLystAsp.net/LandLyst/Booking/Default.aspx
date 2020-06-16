@@ -11,6 +11,9 @@
             <i class="fa fa-times" onclick="NavBarFunc('0px', '0', '-150px')"></i>
         </div>
     </div>
+        <div class="headtitle">
+        Hotel Landlyst
+    </div>
     <div class="menuClass">
         <button type="button" id="menuButton" onclick="NavBarFunc('150px', '1', '0px')" class="menuButton btn btn-light">
             <i class="fas fa-bars"></i> Menu

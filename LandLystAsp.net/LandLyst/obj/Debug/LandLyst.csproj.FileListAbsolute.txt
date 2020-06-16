@@ -315,7 +315,6 @@ C:\Users\seba6474\Documents\GitHub\Landlyst\LandLystAsp.net\LandLyst\bin\System.
 C:\Users\seba6474\Documents\GitHub\Landlyst\LandLystAsp.net\LandLyst\bin\System.Text.Json.xml
 C:\Users\seba6474\Documents\GitHub\Landlyst\LandLystAsp.net\LandLyst\bin\System.Threading.Tasks.Extensions.xml
 C:\Users\seba6474\Documents\GitHub\Landlyst\LandLystAsp.net\LandLyst\bin\System.ValueTuple.xml
-C:\Users\seba6474\Documents\GitHub\Landlyst3\LandLystAsp.net\LandLyst\obj\Debug\LandLyst.csprojAssemblyReference.cache
 C:\Users\seba6474\Documents\GitHub\Landlyst3\LandLystAsp.net\LandLyst\obj\Debug\LandLyst.dll
 C:\Users\seba6474\Documents\GitHub\Landlyst3\LandLystAsp.net\LandLyst\obj\Debug\LandLyst.pdb
 C:\Users\seba6474\Documents\GitHub\Landlyst3\LandLystAsp.net\LandLyst\bin\LandLyst.dll.config
@@ -410,3 +409,4 @@ C:\Users\seba6474\Documents\GitHub\Landlyst3\LandLystAsp.net\LandLyst\bin\Antlr3
 C:\Users\seba6474\Documents\GitHub\Landlyst3\LandLystAsp.net\LandLyst\bin\Microsoft.AspNet.FriendlyUrls.xml
 C:\Users\seba6474\Documents\GitHub\Landlyst3\LandLystAsp.net\LandLyst\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\seba6474\Documents\GitHub\Landlyst3\LandLystAsp.net\LandLyst\obj\Debug\LandLyst.csproj.CopyComplete
+C:\Users\seba6474\Documents\GitHub\Landlyst3\LandLystAsp.net\LandLyst\obj\Debug\LandLyst.csprojAssemblyReference.cache
