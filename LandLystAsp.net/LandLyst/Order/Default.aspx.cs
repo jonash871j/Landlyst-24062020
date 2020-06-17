@@ -92,6 +92,7 @@ namespace LandLyst.Order
             {
                 if (!reception.CheckEmailExists(tb_emailExist.Text))
                 {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "VeiwBox", "VeiwBox(0, 'NotNewCustomerBox', 'NewCustomerBox')", true);
                     lb_error.Text = "Emailen eksitere ikke i systemet!";
                     return;
                 }
@@ -103,13 +104,28 @@ namespace LandLyst.Order
                     Convert.ToDateTime(Request["LDate"])
                 );
                 reception.CreateReservation(reservation);
-                reception.SendOrder(reservation);
+                reception.SendInvoice(reservation, @"C:\Users\seba6474\Documents\GitHub\Landlyst3\LandLystAsp.net\LandLyst\", "Skabalon.docx");
                 Response.Redirect(@"..\Confirmed.aspx");
             }
             catch (Exception exception)
             {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "VeiwBox", "VeiwBox(0, 'NotNewCustomerBox', 'NewCustomerBox')", true);
                 lb_error.Text = exception.Message;
             }
+        }
+
+        protected void Label1_Load(object sender, EventArgs e)
+        {
+            Room room = reception.GetRoom(Int32.Parse(Request["Room"]));
+            List<RoomAddition> roomAdditions = room.Additions;
+
+            string roomAdditionstext = "";
+            foreach (var item in roomAdditions)
+            {
+                roomAdditionstext += $"{item.Addtion} ";
+            }
+            Label1.InnerHtml = $"Værelse nr: {room.Number} <br />Værelses Tillæg: {roomAdditionstext}<br />Start Dato: {Request["SDate"]}<br />Slut Dato: {Request["LDate"]}<br />";
+            Label1.InnerHtml += "Alle hotels værelser. Har hver især med et unikt præg. Der er kælet for hver en detalje alle rum, og alle værelser har eget bad, toilet og adgang til WI-FI.";
         }
     }
 }

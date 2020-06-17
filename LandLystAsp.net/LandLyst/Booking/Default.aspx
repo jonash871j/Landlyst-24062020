@@ -11,9 +11,11 @@
             <i class="fa fa-times" onclick="NavBarFunc('0px', '0', '-150px')"></i>
         </div>
     </div>
+    <a href="..\" style="text-decoration: none">
         <div class="headtitle">
         Hotel Landlyst
     </div>
+    </a>
     <div class="menuClass">
         <button type="button" id="menuButton" onclick="NavBarFunc('150px', '1', '0px')" class="menuButton btn btn-light">
             <i class="fas fa-bars"></i> Menu
@@ -128,7 +130,7 @@
 
                             <div class="roomCardInformation">
                                 <h4>Værelse: <%#Eval("Room") %> </h4>
-                                <h5>Price: <%#Eval("Price") %></h5>
+                                <h5>Pris: <%#Eval("Price") %></h5>
                                 <p><%#Eval("Icons") %></p>
                             </div>
                             <div class="roomCardBTN">

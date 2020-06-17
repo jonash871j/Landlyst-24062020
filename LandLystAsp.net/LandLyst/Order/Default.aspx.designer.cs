@@ -15,6 +15,15 @@ namespace LandLyst.Order
     {
 
         /// <summary>
+        /// lb_error control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lb_error;
+
+        /// <summary>
         /// tb_emailExist control.
         /// </summary>
         /// <remarks>
@@ -114,12 +123,12 @@ namespace LandLyst.Order
         protected global::System.Web.UI.WebControls.Button bn_reserve;
 
         /// <summary>
-        /// lb_error control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lb_error;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label1;
     }
 }

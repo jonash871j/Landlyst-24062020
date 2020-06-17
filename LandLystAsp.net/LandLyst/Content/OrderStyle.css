@@ -1,5 +1,6 @@
 ﻿p {
-    color: blue;
+    padding-top: 100px;
+    font-size: 18px;
 }
 
 .inputtext {
@@ -68,22 +69,29 @@
     box-shadow: 0px 0px 10px 0px black;
 }
 
-    .navBar div {
-        margin-top: 50px;
-        padding: 0px 100px;
-    }
+.navBar div {
+    margin-top: 50px;
+    padding: 0px 100px;
+}
 
-    .navBar a {
-        color: black;
-        font-size: 20px;
-        text-decoration: none;
-        padding: 0px 20px 0px 0px;
-    }
+.navBar a {
+    color: black;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 0px 20px 0px 0px;
+}
 
-    .navBar i {
-        position: relative;
-        color: black;
-        cursor: pointer;
-        font-size: 30px;
-        float: right;
-    }
+.navBar i {
+    position: relative;
+    color: black;
+    cursor: pointer;
+    font-size: 30px;
+    float: right;
+}
+
+.ErrorText {
+    position: relative;
+    color: red;
+    font-size: 18px;
+    font-weight: 700;
+}

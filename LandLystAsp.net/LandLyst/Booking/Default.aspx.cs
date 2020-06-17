@@ -116,7 +116,9 @@ namespace LandLyst.Booking
         public SearchResult(Room room, int days)
         {
             Room = room.Number;
+            room.SetDiscount(days, 7, 10);
             Price = room.GetTotalPrice(days);
+
             for (int i = 0; i < room.Additions.Count; i++)
                 additions.Add(room.Additions[i].Addtion);
         }
