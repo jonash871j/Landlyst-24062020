@@ -15,22 +15,31 @@ namespace LandLyst.Order
     {
 
         /// <summary>
-        /// TextBox1 control.
+        /// lb_error control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.Label lb_error;
 
         /// <summary>
-        /// Button1 control.
+        /// tb_emailExist control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.TextBox tb_emailExist;
+
+        /// <summary>
+        /// bn_reserveExist control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button bn_reserveExist;
 
         /// <summary>
         /// tb_firstName control.
@@ -114,12 +123,12 @@ namespace LandLyst.Order
         protected global::System.Web.UI.WebControls.Button bn_reserve;
 
         /// <summary>
-        /// lb_error control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lb_error;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label1;
     }
 }

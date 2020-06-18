@@ -49,7 +49,7 @@
     <Reference Include="AspNet.ScriptManager.bootstrap, Version=4.4.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AspNet.ScriptManager.bootstrap.4.4.1\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
     </Reference>
-    <Reference Include="LandLystLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="LandLystLib, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\LandLystLib.dll</HintPath>
     </Reference>
@@ -161,6 +161,7 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Confirmed.aspx" />
     <Content Include="Order\Default.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -341,6 +342,13 @@
     <Compile Include="HeadSite.Master.designer.cs">
       <DependentUpon>HeadSite.Master</DependentUpon>
     </Compile>
+    <Compile Include="Confirmed.aspx.cs">
+      <DependentUpon>Confirmed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Confirmed.aspx.designer.cs">
+      <DependentUpon>Confirmed.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Order\OrderSite.Master.cs">
       <DependentUpon>OrderSite.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -404,6 +412,7 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Test\Test.Master" />
+    <Content Include="Skabalon.docx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
