@@ -29,8 +29,35 @@ LANGUAGE PLPGSQL;
 SELECT * FROM FP_Findavailablerooms(DATE '2020-06-5', DATE '2020-06-25');
 /**/
 
+/*This inserts the ordernumber into the invoicequeue table when a new reservation is created*/
+CREATE OR REPLACE FUNCTION TF_order_invoice_queue()
+RETURNS TRIGGER AS
+$$
+BEGIN
+INSERT INTO invoicequeue(ordernumber)
+VALUES(NEW.ordernumber);
+RETURN NEW;
+END;
+$$
+LANGUAGE PLPGSQL;
+
+/*Activate trigger when a new reservation gets inserted*/
+CREATE TRIGGER TRG_new_reservation
+AFTER INSERT
+ON Reservations
+FOR EACH ROW
+EXECUTE PROCEDURE TF_order_invoice_queue();
 
 
+/*Get newly created orders*/
+CREATE OR REPLACE FUNCTION FP_Getinvoicequeue()
+RETURNS TABLE (order_number integer)
+AS $$
+BEGIN
+RETURN QUERY SELECT * FROM invoicequeue;
+
+END; $$
+LANGUAGE PLPGSQL;
 
 /* Used when user gets created in system */
 CREATE OR REPLACE PROCEDURE SP_CreateCustomer(customeremail VARCHAR(345), 
@@ -61,12 +88,30 @@ $$;
 CREATE OR REPLACE PROCEDURE SP_MakeReservation(_ordernumber integer,customeremail VARCHAR(345), _roomnumber INTEGER, customerstartdate DATE, customerenddate DATE)
 LANGUAGE SQL
 AS $$
-    insert into Reservations(ordernumber, email, roomnumber, startdate, enddate, reservationsdate) VALUES(_ordernumber, customeremail, _roomnumber, customerstartdate, customerenddate, CURRENT_DATE)
+    insert into Reservations(ordernumber, email, roomnumber, startdate, enddate, reservationsdate) 
+	VALUES(_ordernumber, customeremail, _roomnumber, customerstartdate, customerenddate, CURRENT_DATE)
 $$;
 
 /*Example of the Procedure*/
 /*call SP_MakeReservation(102, VARCHAR(345) 'kav@gmail.com', 100, DATE '2020-06-09' , DATE '2020-06-13' );*/
 
+/*Deletes everything from the invoicequeue table*/
+CREATE OR REPLACE PROCEDURE SP_Deleteinvoicequeue()
+LANGUAGE SQL
+AS $$
+
+DELETE FROM invoicequeue
+
+$$;
+
+/*This adds an order number to invoicequeue table*/
+CREATE OR REPLACE PROCEDURE SP_AddToInvoicequeue(_ordernumber integer)
+LANGUAGE SQL
+AS $$
+
+INSERT INTO invoicequeue(ordernumber)
+VALUES(_ordernumber)
+$$;
 
 
 /*Return all roomnumbers*/
@@ -194,3 +239,5 @@ WHERE roomnumber NOT IN(SELECT * FROM public.fp_findunavailableroomsonperiod(_st
 
 END; $$
 LANGUAGE PLPGSQL;
+
+

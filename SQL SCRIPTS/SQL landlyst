@@ -56,6 +56,11 @@ CREATE TABLE RoomsAdditions(
 	PRIMARY KEY (roomnumber, name)
 );
 
+CREATE TABLE InvoiceQueue (
+	ordernumber INTEGER,
+	FOREIGN KEY (ordernumber) REFERENCES reservations(ordernumber)
+)
+
 /* Rooms */
 Insert into Room(roomnumber, available, cleaned) values (100, true, true);
 Insert into Room(roomnumber, available, cleaned) values (101, true, true);
