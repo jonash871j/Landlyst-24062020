@@ -24,8 +24,6 @@ CREATE TABLE Customer (
 
 CREATE TABLE Room(
 	roomnumber INTEGER PRIMARY KEY,
-	available BOOL,
-	cleaned BOOL,
 	price FLOAT DEFAULT 695
 );
 
@@ -62,57 +60,57 @@ CREATE TABLE InvoiceQueue (
 )
 
 /* Rooms */
-Insert into Room(roomnumber, available, cleaned) values (100, true, true);
-Insert into Room(roomnumber, available, cleaned) values (101, true, true);
-Insert into Room(roomnumber, available, cleaned) values (102, true, true);
-Insert into Room(roomnumber, available, cleaned) values (103, true, true);
-Insert into Room(roomnumber, available, cleaned) values (104, true, true);
-Insert into Room(roomnumber, available, cleaned) values (105, true, true);
-Insert into Room(roomnumber, available, cleaned) values (106, true, true);
-Insert into Room(roomnumber, available, cleaned) values (107, true, true);
-Insert into Room(roomnumber, available, cleaned) values (108, true, true);
-Insert into Room(roomnumber, available, cleaned) values (109, true, true);
-Insert into Room(roomnumber, available, cleaned) values (110, true, true);
-Insert into Room(roomnumber, available, cleaned) values (200, true, true);
-Insert into Room(roomnumber, available, cleaned) values (201, true, true);
-Insert into Room(roomnumber, available, cleaned) values (202, true, true);
-Insert into Room(roomnumber, available, cleaned) values (203, true, true);
-Insert into Room(roomnumber, available, cleaned) values (204, true, true);
-Insert into Room(roomnumber, available, cleaned) values (205, true, true);
-Insert into Room(roomnumber, available, cleaned) values (206, true, true);
-Insert into Room(roomnumber, available, cleaned) values (207, true, true);
-Insert into Room(roomnumber, available, cleaned) values (208, true, true);
-Insert into Room(roomnumber, available, cleaned) values (209, true, true);
-Insert into Room(roomnumber, available, cleaned) values (300, true, true);
-Insert into Room(roomnumber, available, cleaned) values (301, true, true);
-Insert into Room(roomnumber, available, cleaned) values (302, true, true);
-Insert into Room(roomnumber, available, cleaned) values (303, true, true);
-Insert into Room(roomnumber, available, cleaned) values (304, true, true);
-Insert into Room(roomnumber, available, cleaned) values (305, true, true);
-Insert into Room(roomnumber, available, cleaned) values (306, true, true);
-Insert into Room(roomnumber, available, cleaned) values (307, true, true);
-Insert into Room(roomnumber, available, cleaned) values (308, true, true);
-Insert into Room(roomnumber, available, cleaned) values (309, true, true);
-Insert into Room(roomnumber, available, cleaned) values (400, true, true);
-Insert into Room(roomnumber, available, cleaned) values (401, true, true);
-Insert into Room(roomnumber, available, cleaned) values (402, true, true);
-Insert into Room(roomnumber, available, cleaned) values (403, true, true);
-Insert into Room(roomnumber, available, cleaned) values (404, true, true);
-Insert into Room(roomnumber, available, cleaned) values (405, true, true);
-Insert into Room(roomnumber, available, cleaned) values (406, true, true);
-Insert into Room(roomnumber, available, cleaned) values (407, true, true);
-Insert into Room(roomnumber, available, cleaned) values (408, true, true);
-Insert into Room(roomnumber, available, cleaned) values (409, true, true);
-Insert into Room(roomnumber, available, cleaned) values (500, true, true);
-Insert into Room(roomnumber, available, cleaned) values (501, true, true);
-Insert into Room(roomnumber, available, cleaned) values (502, true, true);
-Insert into Room(roomnumber, available, cleaned) values (503, true, true);
-Insert into Room(roomnumber, available, cleaned) values (504, true, true);
-Insert into Room(roomnumber, available, cleaned) values (506, true, true);
-Insert into Room(roomnumber, available, cleaned) values (507, true, true);
-Insert into Room(roomnumber, available, cleaned) values (508, true, true);
-Insert into Room(roomnumber, available, cleaned) values (509, true, true);
-Insert into Room(roomnumber, available, cleaned) values (510, true, true);
+Insert into Room(roomnumber ) values (100  );
+Insert into Room(roomnumber  ) values (101  );
+Insert into Room(roomnumber ) values (102 );
+Insert into Room(roomnumber  ) values (103  );
+Insert into Room(roomnumber  ) values (104 );
+Insert into Room(roomnumber  ) values (105 );
+Insert into Room(roomnumber  ) values (106 );
+Insert into Room(roomnumber ) values (107 );
+Insert into Room(roomnumber) values (108 );
+Insert into Room(roomnumber) values (109 );
+Insert into Room(roomnumber) values (110 );
+Insert into Room(roomnumber) values (200 );
+Insert into Room(roomnumber) values (201 );
+Insert into Room(roomnumber) values (202 );
+Insert into Room(roomnumber) values (203 );
+Insert into Room(roomnumber) values (204 );
+Insert into Room(roomnumber) values (205 );
+Insert into Room(roomnumber) values (206 );
+Insert into Room(roomnumber) values (207 );
+Insert into Room(roomnumber) values (208 );
+Insert into Room(roomnumber) values (209 );
+Insert into Room(roomnumber) values (300 );
+Insert into Room(roomnumber) values (301 );
+Insert into Room(roomnumber) values (302 );
+Insert into Room(roomnumber) values (303 );
+Insert into Room(roomnumber) values (304 );
+Insert into Room(roomnumber) values (305 );
+Insert into Room(roomnumber ) values (306 );
+Insert into Room(roomnumber ) values (307 );
+Insert into Room(roomnumber ) values (308 );
+Insert into Room(roomnumber ) values (309 );
+Insert into Room(roomnumber ) values (400 );
+Insert into Room(roomnumber ) values (401 );
+Insert into Room(roomnumber ) values (402 );
+Insert into Room(roomnumber ) values (403 );
+Insert into Room(roomnumber ) values (404 );
+Insert into Room(roomnumber ) values (405 );
+Insert into Room(roomnumber ) values (406 );
+Insert into Room(roomnumber ) values (407 );
+Insert into Room(roomnumber ) values (408 );
+Insert into Room(roomnumber ) values (409 );
+Insert into Room(roomnumber ) values (500 );
+Insert into Room(roomnumber ) values (501 );
+Insert into Room(roomnumber ) values (502 );
+Insert into Room(roomnumber ) values (503 );
+Insert into Room(roomnumber ) values (504 );
+Insert into Room(roomnumber ) values (506 );
+Insert into Room(roomnumber ) values (507 );
+Insert into Room(roomnumber ) values (508 );
+Insert into Room(roomnumber ) values (509 );
+Insert into Room(roomnumber ) values (510 );
 
 /* Room Additions */
 INSERT INTO RoomAddition(name, price)
