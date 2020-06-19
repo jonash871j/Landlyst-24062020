@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LandLyst
+namespace LandLyst.Test
 {
 
 
-    public partial class Contact
+    public partial class test
     {
     }
 }

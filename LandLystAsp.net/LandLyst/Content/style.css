@@ -11,6 +11,8 @@
     background-image: url(../Content/Image/Villa-20-bedroom-2.jpg);
     filter: blur(5px);
     transform: scale(1.2);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .confirmedDiv {
@@ -57,8 +59,8 @@
 
 .menuButton {
     position: relative;
-    border-radius: 0;
-    padding: 10px 40px;
+    border-radius: 0 !important;
+    padding: 10px 40px !important;
     font-size: 18px;
 }
 

@@ -1,32 +1,42 @@
-﻿<%@ Page Title="Home Page" Language="C#" AutoEventWireup="true" MasterPageFile="~/Booking/Booking.Master" CodeBehind="Default.aspx.cs" Inherits="LandLyst.Booking.Default" %>
+﻿<%@ Page Title="Landlyst - Book Værelse" Language="C#" AutoEventWireup="true" MasterPageFile="~/Booking/Booking.Master" CodeBehind="Default.aspx.cs" Inherits="LandLyst.Booking.Default" %>
 
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <!-- Background Picture -->
     <div class="BgPic"></div>
+
+    <!-- Top Menu -->
     <div id="NavMenu" class="navBar">
         <div>
             <a href="..\">Forside</a>
             <a href="#">Book</a>
-            <a href="..\test">Test</a>
+            <a href="..\Contact">Kontakt os</a>
             <i class="fa fa-times" onclick="NavBarFunc('0px', '0', '-150px')"></i>
         </div>
     </div>
+
+    <!-- Top Title and an Anchor to the head page -->
     <a href="..\" style="text-decoration: none">
         <div class="headtitle">
         Hotel Landlyst
     </div>
     </a>
+
+    <!-- Top Menu button to open the top menu -->
     <div class="menuClass">
         <button type="button" id="menuButton" onclick="NavBarFunc('150px', '1', '0px')" class="menuButton btn btn-light">
             <i class="fas fa-bars"></i> Menu
         </button>
     </div>
+
+    <!-- The Main Box -->
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-5">
                 <div style="position: relative;
     top: 50%;
     transform: translate(0, -50%);">
+                <h5 style="color: red; text-align: center;" id="ErrorText" runat="server"></h5>
 
                 <%-- Calendar row --%>
                 <div class="row calendar">
@@ -111,7 +121,7 @@
                 </div>
 
             </div>
-            <div class="col-lg-7 scrollmekanik">
+            <div class="col-lg-7 scrollmekanik" runat="server">
 
 
                 <%-- List with rooms --%>
@@ -130,7 +140,8 @@
 
                             <div class="roomCardInformation">
                                 <h4>Værelse: <%#Eval("Room") %> </h4>
-                                <h5>Pris: <%#Eval("Price") %></h5>
+                                <h5>Pris: <%#Eval("Price") %><%  if ((endDatePicker.SelectedDate - startDatePicker.SelectedDate).TotalDays >= 7)
+                                                                     Response.Write(" 10% off");%></h5>
                                 <p><%#Eval("Icons") %></p>
                             </div>
                             <div class="roomCardBTN">

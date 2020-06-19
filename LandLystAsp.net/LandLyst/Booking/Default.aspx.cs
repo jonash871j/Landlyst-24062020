@@ -15,9 +15,13 @@ namespace LandLyst.Booking
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (Request["e"] == "1")
+            {
+                ErrorText.InnerText = "Værelset er allerede optaget, prøv et andet værelse";
+            }
         }
 
+        //checks picked date, is an option
         protected void startDatePicker_SelectionChanged(object sender, EventArgs e)
         {
             if (startDatePicker.SelectedDate < DateTime.Today)
@@ -36,6 +40,7 @@ namespace LandLyst.Booking
             }
         }
 
+        //checks picked date, is an option
         protected void endDatePicker_SelectionChanged(object sender, EventArgs e)
         {
             if ((endDatePicker.SelectedDate < startDatePicker.SelectedDate && startDatePicker.SelectedDate != new DateTime()) ||
@@ -51,6 +56,7 @@ namespace LandLyst.Booking
             }
         }
 
+        //Search button Click, it will search for rooms thats is available in the given time date
         protected void SearchBtn_Click(object sender, EventArgs e)
         {
             if (startDatePicker.SelectedDate != new DateTime() && endDatePicker.SelectedDate != new DateTime())
@@ -86,6 +92,7 @@ namespace LandLyst.Booking
         }
     }
 
+    //Object of a room
     class SearchResult
     {
         List<string> additions = new List<string>();
@@ -113,6 +120,7 @@ namespace LandLyst.Booking
                 return icons;
             }
         }
+
         public SearchResult(Room room, int days)
         {
             Room = room.Number;

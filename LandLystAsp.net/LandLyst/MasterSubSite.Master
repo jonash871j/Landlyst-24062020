@@ -1,28 +1,27 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="OrderSite.master.cs" Inherits="LandLyst.Order.OrderSite" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterSubSite.master.cs" Inherits="LandLyst.MasterSubSite" %>
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 <head runat="server">
-    <title><%: Page.Title %></title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="~/SiteIcon.ico" rel="shortcut icon" type="image/x-icon" />
-    <link href="../Content/OrderStyle.css" rel="stylesheet" />
-    <script src="../Content/SiteScripts.js"></script>
+    <title><%: Page.Title %></title>
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" />
-        <asp:PlaceHolder runat="server">
+    <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" />
+    <script src="../Content/SiteScripts.js"></script>
 
 </head>
 <body>
-    <form id="form1" runat="server">
-            <asp:ScriptManager runat="server">
+    <form runat="server">
+        <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
                 <%--Framework Scripts--%>
@@ -41,10 +40,33 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
+
+        
         <div class="body-content">
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            <div class="BgPic"></div>
+            <div id="NavMenu" class="navBar">
+                <div>
+                    <a href="..\">Forside</a>
+                    <a href="..\Booking">Book</a>
+                    <a href="..\test">Test</a>
+                    <i class="fa fa-times" onclick="NavBarFunc('0px', '0', '-150px')"></i>
+                </div>
+            </div>
+            <a href="..\" style="text-decoration: none">
+                <div class="headtitle">
+                Hotel Landlyst
+            </div>
+            </a>
+            <div class="menuClass">
+                <button type="button" id="menuButton" onclick="NavBarFunc('150px', '1', '0px')" class="menuButton btn btn-light">
+                    <i class="fas fa-bars"></i> Menu
+                </button>
+            </div>
+            <div class="container-fluid">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
+            </div>
         </div>
     </form>
+
 </body>
-</html>

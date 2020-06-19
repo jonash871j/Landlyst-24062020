@@ -11,9 +11,10 @@
     </asp:PlaceHolder>
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="~/SiteIcon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="Content/Headsitestyle.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" />
+    <link href="Content/MasterStyle.css" rel="stylesheet" />
 
 </head>
 <body>
@@ -43,3 +44,4 @@
             </asp:ContentPlaceHolder>
 
 </body>
+</html>

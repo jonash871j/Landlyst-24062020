@@ -6,15 +6,24 @@
 <head runat="server">
     <title></title>
     <link href="Content/style.css" rel="stylesheet" />
+    <link href="~/SiteIcon.ico" rel="shortcut icon" type="image/x-icon" />
     <webopt:bundlereference runat="server" path="~/Content/css" />
 
 </head>
 <body>
     <form id="form1" runat="server">
+
+        <!-- Background Picture -->    
         <div class="BgPic"></div>
-    <div class="headtitle">
-        Hotel Landlyst
-    </div>
+
+        <!-- Top Title and an Anchor to the head page -->
+        <a href="..\" style="text-decoration: none">
+            <div class="headtitle">
+            Hotel Landlyst
+        </div>
+        </a>
+
+         <!-- The Main Box -->
         <div class="confirmedDiv">   
             <p>
                 Dit Reservation er nu blevet Modtaget
