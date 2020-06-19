@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="landlyst.Rooms"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:landlyst"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid Background="GreenYellow">
+        <ScrollViewer>
+            <!--creates listview to show data in rows-->
+            <ListView x:Name ="listView" HorizontalAlignment="Stretch" SelectionChanged="listView_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+
+                        <!--adds the room number column and binds data on room.Number-->
+                        <GridViewColumn Header="Rum nummer" DisplayMemberBinding="{Binding Number}" Width="auto" >
+                            <GridViewColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Mode=OneWay}" Margin="5,0,5,0" FontSize="16"/>
+                                </DataTemplate>
+                            </GridViewColumn.HeaderTemplate>
+                        </GridViewColumn>
+                        <!--adds the room additions column and binds data on room.AdditionsDescription-->
+                        <GridViewColumn Header="tilføjelser" DisplayMemberBinding="{Binding AdditionsDescription}" Width="auto">
+                            <GridViewColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Mode=OneWay}" Margin="5,0,5,0" FontSize="16"/>
+                                </DataTemplate>
+                            </GridViewColumn.HeaderTemplate>
+                        </GridViewColumn>
+
+                    </GridView>
+                </ListView.View>
+
+            </ListView>
+
+        </ScrollViewer>
+    </Grid>
+</UserControl>

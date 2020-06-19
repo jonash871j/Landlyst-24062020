@@ -1,0 +1,38 @@
+﻿<Page x:Class="landlyst.RoomInfo"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:landlyst"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RoomInfo">
+
+    <Grid Background="White">
+        <!--defining rows and columns-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" x:Name="column1"/>
+            <ColumnDefinition Width="30" x:Name="column2"/>
+            <ColumnDefinition Width="*" x:Name="column3"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" x:Name="row1"/>
+            <RowDefinition Height="*" x:Name="row2"/>
+           
+        </Grid.RowDefinitions>
+
+
+        <!--Roomnumber row 0 column 0-->
+        <Label Content="Rum nummer" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,40"/>
+        <TextBox Text="" VerticalAlignment="Center" HorizontalAlignment="Right" Width="75" IsReadOnly="True" Margin="0,0,3,0" Grid.Row="0" x:Name="roomnumber"/>
+        <!--price row 0 column 2-->
+        <Label Content="pris" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,40"/>
+        <TextBox Text="" VerticalAlignment="Center" HorizontalAlignment="Left" Width="75" IsReadOnly="True" Margin="0,0,3,0" Grid.Row="0" Grid.Column="2" x:Name="price"/>
+       <!--additions row 1 column 2-->
+        <Label Content="tilføjelser" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,40"/>
+        <TextBox Text="" VerticalAlignment="Center" HorizontalAlignment="Left" Width="250" IsReadOnly="True" Margin="0,0,3,0" Grid.Row="1" Grid.Column="2" x:Name="additions"/>
+        <!--booking button-->
+        <Button Content="Book nu" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Height="25" Width="75" Click="Button_Click" x:Name="button1"/>
+    </Grid>
+</Page>

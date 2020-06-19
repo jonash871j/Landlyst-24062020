@@ -1,0 +1,40 @@
+﻿<Window x:Class="landlyst.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:landlyst"
+        xmlns:viewmodel="clr-namespace:landlyst"
+        xmlns:views="clr-namespace:landlyst"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    
+   
+    <Grid>
+
+        <DockPanel x:Name="dockPanel" Grid.ColumnSpan="2" >
+            <Grid DockPanel.Dock="Top" Height="40">
+                <!--defines columns-->
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--creates buttons to diffrent pages-->
+                <Button Grid.Column="0" Content="Rooms" FontSize="16" Click="Button_Click_1"/>
+                <Button Grid.Column="1" Content="Resevations" FontSize="16" Click="Button_Click"/>
+                
+            </Grid>
+
+            <!--sets two rectangels on each side as a white buffer-->
+            <Rectangle Width="50" DockPanel.Dock="Left" HorizontalAlignment="Left" VerticalAlignment="Top" Height="{Binding ActualHeight, ElementName=dockPanel, Mode=OneWay}" />
+            <Rectangle Width="50" DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Top" Height="{Binding ActualHeight, ElementName=dockPanel, Mode=OneWay}" />
+            
+            <ContentControl x:Name="contentControl" Margin="0, 0, 0, 0" />
+            
+        </DockPanel>
+    </Grid>
+</Window>
